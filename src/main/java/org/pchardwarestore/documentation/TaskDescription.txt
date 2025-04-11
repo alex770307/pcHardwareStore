@@ -60,9 +60,8 @@ ProductRequestDto
   Double price (цена продукта)
   Integer quantity (количество в наличии)
   ProductStatus status
-  LocalDateTime createDate
-  LocalDateTime lastUpdate
-  Long categoryId
+  Category category
+
 
 ProductResponseDto
 ----------------------
