@@ -9,15 +9,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Category {
 
-    private Integer idForCategory;
+    private Long idForCategory;
 
     private String name;
 
     private String description;
 
-    public Category(String name, String description) {
+    private CategoryType categoryType;
+
+    public Category(String name, String description, CategoryType categoryType) {
         this.name = name;
         this.description = description;
+        this.categoryType = categoryType;
     }
-
 }

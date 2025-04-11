@@ -1,0 +1,104 @@
+Задание: написать приложение  на Java с использованием Spring Boot для хранения и управления данными
+онлайн-магазина компьютерной техники (pcHardwareStore)
+
+1. Функционал (то есть что программа делает?)
+2. Как мы храним данные (entity)
+3. Какие операции с данными мы будем совершать
+4. Список запросов, которые мы будем готовы обслуживать
+
+
+1. Хранение, добавление, поиск и удаление данных по запросу пользователя
+
+2.
+Category
+---------
+Long idForCategory (уникальный идентификатор)
+String categoryName (название категории)
+String categoryDescription (описание категории)
+
+CategoryType для category
+
+
+Product
+-------
+  Long idForProduct (уникальный идентификатор)
+  String productName (название продукта)
+  String productDescription(описание продукта)
+  String manufacturer (производитель)
+  Double price (цена продукта)
+  Integer quantity (количество в наличии)
+  Category category
+  LocalDateTime createDate
+  LocalDateTime lastUpdate
+  ProductStatus status
+
+ProductStatus для Product
+
+
+DTO
+-------
+
+CategoryRequestDto
+----------------------
+String categoryName
+String categoryDescription
+CategoryType categoryType
+
+CategoryResponseDto
+----------------------
+Long idForCategory
+String categoryName
+String categoryDescription
+CategoryType categoryType
+
+
+ProductRequestDto
+----------------------
+  String productName (название продукта)
+  String productDescription(описание продукта)
+  String manufacturer (производитель)
+  Double price (цена продукта)
+  Integer quantity (количество в наличии)
+  ProductStatus status
+  LocalDateTime createDate
+  LocalDateTime lastUpdate
+  Long categoryId
+
+ProductResponseDto
+----------------------
+  Long idForProduct (уникальный идентификатор)
+  String productName (название продукта)
+  String productDescription(описание продукта)
+  String manufacturer (производитель)
+  Double price (цена продукта)
+  Integer quantity (количество в наличии)
+  ProductStatus status
+  LocalDateTime createDate
+  LocalDateTime lastUpdate
+  CategoryResponseDto categoryDto
+
+
+3. CRUD
+- create
+- read
+- update
+- delete
+
+4. Запросы:
+
+- post запрос на добавление нового Product
+
+public ProductResponseDto createNewProduct(ProductRequestDto request)
+
+- get запрос найти все продукты
+
+public List<ProductResponseDto> findAll()
+
+- get запрос найти продукт по его id
+
+public Optional<ProductResponseDto> findById(Long id)
+
+
+- get запрос найти все продукты по названию
+
+public List<ProductResponseDto> findByName(String ProductName)
