@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.pchardwarestore.dto.categoryDto.CategoryResponseDto;
-import org.pchardwarestore.entity.ProductStatus;
+import org.pchardwarestore.entity.productEntity.ProductStatus;
 
 import java.time.LocalDateTime;
 

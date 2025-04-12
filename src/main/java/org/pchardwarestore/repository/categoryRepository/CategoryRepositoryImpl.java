@@ -1,6 +1,7 @@
-package org.pchardwarestore.repository;
+package org.pchardwarestore.repository.categoryRepository;
 
-import org.pchardwarestore.entity.Category;
+import org.pchardwarestore.entity.categoryEntity.Category;
+import org.pchardwarestore.entity.categoryEntity.CategoryType;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -45,17 +46,30 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     }
 
     @Override
-    public Optional<Category> updateCategory(Category categoryType) {
-        Optional<Category> categoryForUpdate = categoryDatabase.values().stream()
-                .filter(category -> category.getCategoryType().equals(categoryType))
-                .findFirst();
-        if (categoryForUpdate.isPresent()) {
-            categoryForUpdate.get().setDescription(categoryType.getDescription());
-            return categoryForUpdate;
-        } else {
-            return Optional.empty();
-        }
+    public Optional<Category> findCategoryByCategoryType(CategoryType type) {
+        return Optional.ofNullable(categoryDatabase.get(type));
+    }
 
+//    @Override
+//    public List<Category> findCategoryByCategoryType(CategoryType categoryType) {
+//        List<Category> categoriesByType = new ArrayList<>();
+//        categoryDatabase.values().stream()
+//                .filter(category -> category.getCategoryType().equals(categoryType))
+//                .forEach(category -> categoriesByType.add(category));
+//        return categoriesByType;
+//    }
+
+    @Override
+    public Optional<Category> updateCategory(Category category) {
+        Optional<Category> updatedCategory = findCategoryById(categoryId);
+        if (updatedCategory.isPresent()) {
+            updatedCategory.get().setName(category.getName());
+            updatedCategory.get().setDescription(category.getDescription());
+            updatedCategory.get().setCategoryType(category.getCategoryType());
+            categoryDatabase.put(categoryId, updatedCategory.get());
+            return Optional.of(updatedCategory.get());
+        }
+        return Optional.empty();
     }
 
     @Override

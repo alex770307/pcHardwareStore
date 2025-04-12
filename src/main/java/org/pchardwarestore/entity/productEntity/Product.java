@@ -1,8 +1,9 @@
-package org.pchardwarestore.entity;
+package org.pchardwarestore.entity.productEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.pchardwarestore.entity.categoryEntity.Category;
 
 import java.time.LocalDateTime;
 

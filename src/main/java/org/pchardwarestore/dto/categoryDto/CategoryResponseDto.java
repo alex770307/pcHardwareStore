@@ -3,7 +3,7 @@ package org.pchardwarestore.dto.categoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.pchardwarestore.entity.CategoryType;
+import org.pchardwarestore.entity.categoryEntity.CategoryType;
 
 @Data
 @AllArgsConstructor

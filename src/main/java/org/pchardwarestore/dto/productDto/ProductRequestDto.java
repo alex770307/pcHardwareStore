@@ -3,10 +3,8 @@ package org.pchardwarestore.dto.productDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.pchardwarestore.entity.Category;
-import org.pchardwarestore.entity.ProductStatus;
-
-import java.time.LocalDateTime;
+import org.pchardwarestore.entity.categoryEntity.Category;
+import org.pchardwarestore.entity.productEntity.ProductStatus;
 
 @Data
 @AllArgsConstructor

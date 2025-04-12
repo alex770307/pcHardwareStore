@@ -1,4 +1,4 @@
-package org.pchardwarestore.entity;
+package org.pchardwarestore.entity.categoryEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
