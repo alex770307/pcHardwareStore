@@ -45,22 +45,23 @@ public class CategoryRepositoryImpl implements CategoryRepository {
                 .toList();
     }
 
-    @Override
-    public Optional<Category> findCategoryByCategoryType(CategoryType type) {
-        return Optional.ofNullable(categoryDatabase.get(type));
-    }
-
 //    @Override
-//    public List<Category> findCategoryByCategoryType(CategoryType categoryType) {
-//        List<Category> categoriesByType = new ArrayList<>();
-//        categoryDatabase.values().stream()
-//                .filter(category -> category.getCategoryType().equals(categoryType))
-//                .forEach(category -> categoriesByType.add(category));
-//        return categoriesByType;
+//    public Optional<Category> findCategoryByCategoryType(CategoryType type) {
+//        return Optional.ofNullable(categoryDatabase.get(type));
 //    }
 
     @Override
+    public List<Category> findCategoryByCategoryType(CategoryType categoryType) {
+        List<Category> categoriesByType = new ArrayList<>();
+        categoryDatabase.values().stream()
+                .filter(category -> category.getCategoryType().equals(categoryType))
+                .forEach(category -> categoriesByType.add(category));
+        return categoriesByType;
+    }
+
+    @Override
     public Optional<Category> updateCategory(Category category) {
+        Long categoryId = category.getIdForCategory(); // Используем ID из переданного объекта
         Optional<Category> updatedCategory = findCategoryById(categoryId);
         if (updatedCategory.isPresent()) {
             updatedCategory.get().setName(category.getName());

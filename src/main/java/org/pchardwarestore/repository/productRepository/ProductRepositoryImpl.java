@@ -85,22 +85,23 @@ public class ProductRepositoryImpl implements ProductRepository {
         return productsOnlyInStock;
     }
 
-    @Override
-    public Optional<Product> findProductByStatus(ProductStatus status) {
-        return Optional.ofNullable(productsDatabase.get(status));
-    }
-
 //    @Override
-//    public List<Product> findProductByStatus(ProductStatus status) {
-//        List<Product> productsByStatus = new ArrayList<>();
-//        productsDatabase.values().stream()
-//                .filter(product -> product.getStatus() == status)
-//                .forEach(product -> productsByStatus.add(product));
-//        return productsByStatus;
+//    public Optional<Product> findProductByStatus(ProductStatus status) {
+//        return Optional.ofNullable(productsDatabase.get(status));
 //    }
 
     @Override
+    public List<Product> findProductByStatus(ProductStatus status) {
+        List<Product> productsByStatus = new ArrayList<>();
+        productsDatabase.values().stream()
+                .filter(product -> product.getStatus() == status)
+                .forEach(product -> productsByStatus.add(product));
+        return productsByStatus;
+    }
+
+    @Override
     public Optional<Product> updateProduct(Product product) {
+        Long productId = product.getIdForProduct();
         Optional<Product> updatedProduct = findProductById(productId);
         if (updatedProduct.isPresent()) {
             updatedProduct.get().setName(product.getName());

@@ -14,8 +14,8 @@ public interface CategoryRepository {
     List<Category> findAllCategories();
     Optional<Category> findCategoryById(Long id);
     List<Category> findCategoryByName(String name);
-    //List<Category> findCategoryByCategoryType(CategoryType type);
-    Optional<Category> findCategoryByCategoryType(CategoryType type);
+    List<Category> findCategoryByCategoryType(CategoryType type);
+//    Optional<Category> findCategoryByCategoryType(CategoryType type);
 
     Optional<Category> updateCategory(Category category);
 

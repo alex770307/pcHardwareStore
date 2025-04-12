@@ -16,6 +16,7 @@ public class ProductRequestDto {
     private Double price;
     private Integer quantity;
     private ProductStatus status;
-    private Category category;
+//    private Category category;
+    private Long categoryID;
 
 }

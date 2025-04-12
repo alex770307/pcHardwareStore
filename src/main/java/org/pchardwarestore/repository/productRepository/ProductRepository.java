@@ -18,8 +18,8 @@ public interface ProductRepository {
     List<Product> findProductByCategory(Category category);
     List<Product> findProductByPriceRange(Double lower, Double upper);
     List<Product> findOnlyInStock();
-//    List<Product> findProductByStatus(ProductStatus status);
-    Optional<Product> findProductByStatus(ProductStatus status);
+    List<Product> findProductByStatus(ProductStatus status);
+//    Optional<Product> findProductByStatus(ProductStatus status);
 
     Optional<Product> updateProduct(Product product);
 
