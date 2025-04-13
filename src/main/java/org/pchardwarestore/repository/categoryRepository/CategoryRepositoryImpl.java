@@ -45,11 +45,6 @@ public class CategoryRepositoryImpl implements CategoryRepository {
                 .toList();
     }
 
-//    @Override
-//    public Optional<Category> findCategoryByCategoryType(CategoryType type) {
-//        return Optional.ofNullable(categoryDatabase.get(type));
-//    }
-
     @Override
     public List<Category> findCategoryByCategoryType(CategoryType categoryType) {
         List<Category> categoriesByType = new ArrayList<>();

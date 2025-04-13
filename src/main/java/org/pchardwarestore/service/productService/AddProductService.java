@@ -8,7 +8,6 @@ import org.pchardwarestore.entity.categoryEntity.Category;
 import org.pchardwarestore.entity.productEntity.Product;
 import org.pchardwarestore.entity.productEntity.ProductStatus;
 import org.pchardwarestore.repository.productRepository.ProductRepository;
-import org.pchardwarestore.service.categoryService.AddCategoryService;
 import org.pchardwarestore.service.categoryService.FindCategoryService;
 import org.pchardwarestore.service.util.Converter;
 import org.springframework.stereotype.Service;
@@ -18,14 +17,11 @@ import java.time.LocalDateTime;
 @Service
 public class AddProductService {
     private ProductRepository repository;
-    private AddCategoryService addCategoryService;
     private FindCategoryService findCategoryService;
     private Converter converter;
 
-    public AddProductService(ProductRepository repository, AddCategoryService addCategoryService,
-                             FindCategoryService findCategoryService, Converter converter) {
+    public AddProductService(ProductRepository repository, FindCategoryService findCategoryService, Converter converter) {
         this.repository = repository;
-        this.addCategoryService = addCategoryService;
         this.findCategoryService = findCategoryService;
         this.converter = converter;
     }

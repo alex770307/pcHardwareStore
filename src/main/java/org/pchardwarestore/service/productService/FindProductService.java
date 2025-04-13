@@ -8,7 +8,6 @@ import org.pchardwarestore.entity.categoryEntity.CategoryType;
 import org.pchardwarestore.entity.productEntity.Product;
 import org.pchardwarestore.entity.productEntity.ProductStatus;
 import org.pchardwarestore.repository.productRepository.ProductRepository;
-import org.pchardwarestore.service.categoryService.AddCategoryService;
 import org.pchardwarestore.service.categoryService.FindCategoryService;
 import org.pchardwarestore.service.util.Converter;
 import org.springframework.stereotype.Service;
@@ -20,14 +19,11 @@ import java.util.Optional;
 public class FindProductService {
 
     private ProductRepository repository;
-    private AddCategoryService addCategoryService;
     private FindCategoryService findCategoryService;
     private Converter converter;
 
-    public FindProductService(ProductRepository repository, AddCategoryService addCategoryService,
-                              FindCategoryService findCategoryService, Converter converter) {
+    public FindProductService(ProductRepository repository, FindCategoryService findCategoryService, Converter converter) {
         this.repository = repository;
-        this.addCategoryService = addCategoryService;
         this.findCategoryService = findCategoryService;
         this.converter = converter;
     }
@@ -37,7 +33,8 @@ public class FindProductService {
                 .map(product -> converter.toDto(product))
                 .toList();
     }
-    public List<Product> findAllDetails(){
+
+    public List<Product> findAllDetails() {
         return repository.findAllProducts();
     }
 
@@ -64,6 +61,7 @@ public class FindProductService {
         responseWithError.addError("Product with product name " + productName + " not found");
         return responseWithError;
     }
+
     public GeneralResponse<List<ProductResponseDto>> findProductByManufacturer(String manufacturer) {
         List<Product> foundedProducts = repository.findProductByManufacturer(manufacturer);
         if (!foundedProducts.isEmpty()) {
@@ -101,9 +99,10 @@ public class FindProductService {
             return new GeneralResponse<>(response);
         }
         GeneralResponse<List<ProductResponseDto>> responseWithError = new GeneralResponse<>(null);
-        responseWithError.addError("Product in the price range from '" + lower + "' to '"+ upper+"' not found");
+        responseWithError.addError("Product in the price range from '" + lower + "' to '" + upper + "' not found");
         return responseWithError;
     }
+
     public GeneralResponse<List<ProductResponseDto>> findOnlyInStock(Integer quantity) {
         List<Product> foundedProducts = repository.findOnlyInStock(quantity);
         if (!foundedProducts.isEmpty()) {
@@ -116,6 +115,7 @@ public class FindProductService {
         responseWithError.addError("Product is currently unavailable");
         return responseWithError;
     }
+
     public GeneralResponse<ProductResponseDto> findProductByStatus(ProductStatus status) {
         List<Product> foundedProductOptional = repository.findProductByStatus(status);
         if (!foundedProductOptional.isEmpty()) {

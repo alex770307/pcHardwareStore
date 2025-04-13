@@ -4,8 +4,6 @@ import org.pchardwarestore.dto.GeneralResponse;
 import org.pchardwarestore.dto.productDto.ProductResponseDto;
 import org.pchardwarestore.entity.productEntity.Product;
 import org.pchardwarestore.repository.productRepository.ProductRepository;
-import org.pchardwarestore.service.categoryService.AddCategoryService;
-import org.pchardwarestore.service.categoryService.FindCategoryService;
 import org.pchardwarestore.service.util.Converter;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +12,10 @@ import java.util.Optional;
 public class DeleteProductService {
 
     private ProductRepository repository;
-    private AddCategoryService addCategoryService;
-    private FindCategoryService findCategoryService;
     private Converter converter;
 
-    public DeleteProductService(ProductRepository repository, AddCategoryService addCategoryService,
-                                FindCategoryService findCategoryService, Converter converter) {
+    public DeleteProductService(ProductRepository repository, Converter converter) {
         this.repository = repository;
-        this.addCategoryService = addCategoryService;
-        this.findCategoryService = findCategoryService;
         this.converter = converter;
     }
 

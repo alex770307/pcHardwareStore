@@ -85,11 +85,6 @@ public class ProductRepositoryImpl implements ProductRepository {
         return productsOnlyInStock;
     }
 
-//    @Override
-//    public Optional<Product> findProductByStatus(ProductStatus status) {
-//        return Optional.ofNullable(productsDatabase.get(status));
-//    }
-
     @Override
     public List<Product> findProductByStatus(ProductStatus status) {
         List<Product> productsByStatus = new ArrayList<>();
