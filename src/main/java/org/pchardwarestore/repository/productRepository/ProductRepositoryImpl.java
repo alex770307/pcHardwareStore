@@ -77,7 +77,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public List<Product> findOnlyInStock() {
+    public List<Product> findOnlyInStock(Integer quantity) {
         List<Product> productsOnlyInStock = new ArrayList<>();
         productsDatabase.values().stream()
                 .filter(product -> product.getQuantity() > 0)

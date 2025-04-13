@@ -58,4 +58,13 @@ public class Converter {
         category.setCategoryType(dto.getCategoryType());
         return category;
     }
+
+    public Category categoryFromDto(CategoryResponseDto body) {
+        Category category = new Category();
+        category.setName(body.getName());
+        category.setDescription(body.getDescription());
+        category.setCategoryType(body.getCategoryType());
+        return category;
+    }
+
 }
