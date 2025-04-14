@@ -26,8 +26,9 @@ public class AddProductService {
         this.converter = converter;
     }
 
-    public GeneralResponse<ProductResponseDto> createNewProduct(ProductRequestDto request) {
-        GeneralResponse<CategoryResponseDto> categoryResponse = findCategoryService.findCategoryById(request.getCategoryID());
+    public GeneralResponse<ProductResponseDto> addNewProduct(ProductRequestDto request) {
+        GeneralResponse<CategoryResponseDto> categoryResponse = findCategoryService.
+                findCategoryById(request.getCategoryID());
         if (!categoryResponse.getErrors().isEmpty()) {
             GeneralResponse<ProductResponseDto> responseWithError = new GeneralResponse<>(null);
             responseWithError.addError("Category with id '" + request.getCategoryID() + "' not found");

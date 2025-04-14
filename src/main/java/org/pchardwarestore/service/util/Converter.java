@@ -18,7 +18,7 @@ public class Converter {
         product.setManufacturer(dto.getManufacturer());
         product.setPrice(dto.getPrice());
         product.setQuantity(dto.getQuantity());
-        product.setStatus(dto.getStatus());
+//        product.setStatus(dto.getStatus());
 
         return product;
     }

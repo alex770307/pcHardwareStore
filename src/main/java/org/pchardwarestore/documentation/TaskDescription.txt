@@ -85,21 +85,59 @@ ProductResponseDto
 
 4. Запросы:
 
-- post запрос на добавление нового Product
+4.1 Для категорий
 
-public ProductResponseDto createNewProduct(ProductRequestDto request)
+        - post запрос на добавление новой категории
+        public GeneralResponse<CategoryResponseDto> createNewCategory(CategoryRequestDto request)
 
-- get запрос найти все продукты
+        - get запрос найти все категории
+        public List<CategoryResponseDto> findAll()
 
-public List<ProductResponseDto> findAll()
+        - get запрос получить все категории (полные детали)
+         public List<Category> findAllFullDetails()
 
-- get запрос найти продукт по его id
+         - get запрос найти категорию по ID
+        public GeneralResponse<CategoryResponseDto> findCategoryById(Long id)
 
-public Optional<ProductResponseDto> findById(Long id)
+         - get запрос найти категории по названию
+        public GeneralResponse<List<CategoryResponseDto>> findCategoriesByName(String name)
+
+         - get запрос найти категории  по типу
+         public GeneralResponse<List<CategoryResponseDto>> findCategoriesByName(String type)
+
+         - delete запрос на удаление категории
+        public GeneralResponse<CategoryResponseDto> deleteCategoryById(Long id)
 
 
-- get запрос найти все продукты по названию
+4.2 Для товаров
 
-public List<ProductResponseDto> findByName(String ProductName)
+        - post запрос на добавление нового Product
+        public GeneralResponse<ProductResponseDto> addNewProduct(ProductRequestDto request)
 
-Time: 1:40:00
+        - get запрос найти все продукты
+        public List<ProductResponseDto> findAllProducts()
+
+        - get запрос получить все детали продуктов
+         public List<Product> findAllDetails()
+
+        - get запрос найти продукт по его id
+        public GeneralResponse<ProductResponseDto> findProductById(Long id)
+
+        - get запрос найти все продукты по названию
+        public GeneralResponse<List<ProductResponseDto>> findProductByName(String productName)
+
+        - get запрос найти продукты по производителю
+        public GeneralResponse<List<ProductResponseDto>> findProductByManufacturer(String manufacturer)
+
+        - get запрос найти продукты по типу категории
+        public GeneralResponse<List<ProductResponseDto>> findProductByCategory(CategoryType categoryType)
+
+        - get запрос найти продукты в наличии
+        public GeneralResponse<List<ProductResponseDto>> findOnlyInStock(Integer quantity)
+
+        - get запрос найти продукты по статусу
+        public GeneralResponse<List<ProductResponseDto>> findProductByStatus(ProductStatus status)
+
+        - delete запрос на удаление продукта
+        public GeneralResponse<ProductResponseDto> deleteProductById(Long id)
+

@@ -116,14 +116,16 @@ public class FindProductService {
         return responseWithError;
     }
 
-    public GeneralResponse<ProductResponseDto> findProductByStatus(ProductStatus status) {
-        List<Product> foundedProductOptional = repository.findProductByStatus(status);
-        if (!foundedProductOptional.isEmpty()) {
-            ProductResponseDto response = converter.toDto(foundedProductOptional.get(0));
+    public GeneralResponse<List<ProductResponseDto>> findProductByStatus(ProductStatus status) {
+        List<Product> foundedProducts = repository.findProductByStatus(status);
+        if (!foundedProducts.isEmpty()) {
+            List<ProductResponseDto> response = foundedProducts.stream()
+                    .map(converter::toDto)
+                    .toList();
             return new GeneralResponse<>(response);
         }
-        GeneralResponse<ProductResponseDto> responseWithError = new GeneralResponse<>(null);
-        responseWithError.addError("Product with status " + status + " not found");
+        GeneralResponse<List<ProductResponseDto>> responseWithError = new GeneralResponse<>(null);
+        responseWithError.addError("Products with status " + status + " not found");
         return responseWithError;
     }
 }
