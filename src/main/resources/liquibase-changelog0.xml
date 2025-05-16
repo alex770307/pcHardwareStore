@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <!--- добавляем все наши изменения в БД -->
+
+    <!-- Category Section -->
+    <changeSet id="create.table.category_section" author="alex">
+        <createTable tableName="category_section">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="section_name" type="varchar (255)"/>
+            <column name="description" type="varchar (255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Category -->
+    <changeSet id="create.table.category" author="alex">
+        <createTable tableName="category">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="category_name" type="varchar (255)"/>
+            <column name="description" type="varchar (255)"/>
+            <column name="section_id" type="int"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="category"
+                                 baseColumnNames="section_id"
+                                 referencedTableName="category_section"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_category_section"/>
+    </changeSet>
+
+    <!-- Product -->
+    <changeSet id="create.table.product" author="alex">
+        <createTable tableName="product">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_name" type="varchar (255)"/>
+            <column name="description" type="varchar (255)"/>
+            <column name="manufacturer" type="varchar (255)"/>
+            <column name="price" type="double"/>
+            <column name="quantity" type="int"/>
+            <column name="create_date" type="date"/>
+            <column name="last_update_date" type="date"/>
+            <column name="status" type="varchar (255)"/>
+            <column name="category_id" type="int"/>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="product"
+                baseColumnNames="category_id"
+                referencedTableName="category"
+                referencedColumnNames="id"
+                constraintName="fk_product_category"/>
+    </changeSet>
+
+    <!-- Insert initial data into category_section -->
+    <changeSet id="insert.category_sections" author="alex">
+
+        <insert tableName="category_section">
+            <column name="id" value="1"/>
+            <column name="section_name" value="Core Components"/>
+            <column name="description" value="Essential components for PC building"/>
+        </insert>
+
+    </changeSet>
+
+    <!-- Insert initial data into category -->
+    <changeSet id="insert.categories" author="alex">
+
+        <!-- Core Components (section_id = 1) -->
+        <insert tableName="category">
+            <column name="id" value="1"/>
+            <column name="category_name" value="Graphics cards (GPUs)"/>
+            <column name="description" value="Powerful graphics cards for rendering and gaming"/>
+            <column name="section_id" value="1"/>
+        </insert>
+
+    </changeSet>
+
+    <!-- Insert initial data into product -->
+    <changeSet id="insert.products" author="alex">
+
+        <!-- Core Components (section_id = 1) -->
+        <insert tableName="product">
+            <column name="id" value="1"/>
+            <column name="product_name" value="NVIDIA GeForce RTX 4090"/>
+            <column name="description" value="Top-tier NVIDIA graphics card"/>
+            <column name="manufacturer" value="NVIDIA"/>
+            <column name="price" value="1599.00"/>
+            <column name="quantity" value="8"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="1"/>
+        </insert>
+
+    </changeSet>
+
+    <!-- Confirmation Code -->
+<!--    <changeSet id="create.table.confirmation_code" author="alex">-->
+<!--        <createTable tableName="confirmation_code">-->
+<!--            <column name="id" type="int" autoIncrement="true">-->
+<!--                <constraints primaryKey="true" nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="code" type="varchar(255)">-->
+<!--                <constraints nullable="false" unique="true"/>-->
+<!--            </column>-->
+<!--            <column name="expire_date_time" type="timestamp">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="is_confirmed" type="boolean">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="user_id" type="int">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+
+<!--        <addForeignKeyConstraint-->
+<!--                baseTableName="confirmation_code"-->
+<!--                baseColumnNames="user_id"-->
+<!--                referencedTableName="user"-->
+<!--                referencedColumnNames="id"-->
+<!--                constraintName="fk_confirmation_code_user"/>-->
+<!--    </changeSet>-->
+
+    <!-- User -->
+<!--    <changeSet id="create.table.user" author="alex">-->
+<!--        <createTable tableName="user">-->
+<!--            <column name="id" type="int" autoIncrement="true">-->
+<!--                <constraints primaryKey="true"/>-->
+<!--            </column>-->
+<!--            <column name="email" type="varchar(255)">-->
+<!--                <constraints nullable="false" unique="true"/>-->
+<!--            </column>-->
+<!--            <column name="first_name" type="varchar(255)"/>-->
+<!--            <column name="last_name" type="varchar(255)"/>-->
+<!--            <column name="hash_password" type="varchar(255)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="status" type="varchar(50)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="role" type="varchar(50)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+
+
+    <!-- Insert initial data into confirmation_code -->
+<!--    <changeSet id="insert.confirmation_code" author="alex">-->
+<!--        <insert tableName="confirmation_code">-->
+<!--            <column name="id" value="1"/>-->
+<!--            <column name="code" value="123e4567-e89b-12d3-a456-426614174000"/>-->
+<!--            <column name="expire_date_time" valueDate="2025-05-05T12:00:00"/>-->
+<!--            <column name="is_confirmed" valueBoolean="false"/>-->
+<!--            <column name="user_id" value="1"/>-->
+<!--        </insert>-->
+<!--    </changeSet>-->
+
+    <!-- Insert initial user into user table -->
+<!--    <changeSet id="insert.user" author="alex">-->
+<!--        <insert tableName="user">-->
+<!--            <column name="id" value="1"/>-->
+<!--            <column name="email" value="test@example.com"/>-->
+<!--            <column name="first_name" value="John"/>-->
+<!--            <column name="last_name" value="Doe"/>-->
+<!--            <column name="hash_password" value="$2a$10$DOWSDUhuO0z9eykNk0Xp..WEO61z8HQ7UpgqDuvSrw/Np1P9gAK.a"/>-->
+<!--            <column name="status" value="NOT_CONFIRMED"/>-->
+<!--            <column name="role" value="USER"/>-->
+<!--        </insert>-->
+<!--    </changeSet>-->
+
+
+
+
+    <!-- Users -->
+    <changeSet id="create.table.users" author="alex">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(25)"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="hash_password" type="VARCHAR(255)"/>
+            <column name="role" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="photo_link" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Insert initial user into user table -->
+    <changeSet id="insert.initial.user" author="alex">
+        <insert tableName="users">
+            <column name="id" value="1"/>
+            <column name="first_name" value="Admin"/>
+            <column name="last_name" value="Adminovic"/>
+            <column name="email" value="admin@example.com"/>
+            <column name="hash_password" value="hashed_password_here"/>
+            <column name="role" value="ADMIN"/>
+            <column name="status" value="CONFIRMED"/>
+            <column name="photo_link" value=""/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

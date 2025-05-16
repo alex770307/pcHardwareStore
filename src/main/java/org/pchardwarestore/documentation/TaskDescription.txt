@@ -1,0 +1,143 @@
+Задание: написать приложение  на Java с использованием Spring Boot для хранения и управления данными
+онлайн-магазина компьютерной техники (pcHardwareStore)
+
+1. Функционал (то есть что программа делает?)
+2. Как мы храним данные (entity)
+3. Какие операции с данными мы будем совершать
+4. Список запросов, которые мы будем готовы обслуживать
+
+
+1. Хранение, добавление, поиск и удаление данных по запросу пользователя
+
+2.
+Category
+---------
+Long idForCategory (уникальный идентификатор)
+String categoryName (название категории)
+String categoryDescription (описание категории)
+
+CategoryType для category
+
+
+Product
+-------
+  Long idForProduct (уникальный идентификатор)
+  String productName (название продукта)
+  String productDescription(описание продукта)
+  String manufacturer (производитель)
+  Double price (цена продукта)
+  Integer quantity (количество в наличии)
+  Category category
+  LocalDateTime createDate
+  LocalDateTime lastUpdate
+  ProductStatus status
+
+ProductStatus для Product
+
+
+DTO
+-------
+
+CategoryRequestDto
+----------------------
+String categoryName
+String categoryDescription
+CategoryType categoryType
+
+CategoryResponseDto
+----------------------
+Long idForCategory
+String categoryName
+String categoryDescription
+CategoryType categoryType
+
+
+ProductRequestDto
+----------------------
+  String productName (название продукта)
+  String productDescription(описание продукта)
+  String manufacturer (производитель)
+  Double price (цена продукта)
+  Integer quantity (количество в наличии)
+  ProductStatus status
+  Category category
+
+
+ProductResponseDto
+----------------------
+  Long idForProduct (уникальный идентификатор)
+  String productName (название продукта)
+  String productDescription(описание продукта)
+  String manufacturer (производитель)
+  Double price (цена продукта)
+  Integer quantity (количество в наличии)
+  ProductStatus status
+  LocalDateTime createDate
+  LocalDateTime lastUpdate
+  CategoryResponseDto categoryDto
+
+
+3. CRUD
+- create
+- read
+- update
+- delete
+
+4. Запросы:
+
+4.1 Для категорий
+
+        - post запрос на добавление новой категории
+        public GeneralResponse<CategoryResponseDto> createNewCategory(CategoryRequestDto request)
+
+        - get запрос найти все категории
+        public List<CategoryResponseDto> findAll()
+
+        - get запрос получить все категории (полные детали)
+         public List<Category> findAllFullDetails()
+
+         - get запрос найти категорию по ID
+        public GeneralResponse<CategoryResponseDto> findCategoryById(Long id)
+
+         - get запрос найти категории по названию
+        public GeneralResponse<List<CategoryResponseDto>> findCategoriesByName(String name)
+
+         - get запрос найти категории  по типу
+         public GeneralResponse<List<CategoryResponseDto>> findCategoriesByName(String type)
+
+         - delete запрос на удаление категории
+        public GeneralResponse<CategoryResponseDto> deleteCategoryById(Long id)
+
+
+4.2 Для товаров
+
+        - post запрос на добавление нового Product
+        public GeneralResponse<ProductResponseDto> addNewProduct(ProductRequestDto request)
+
+        - get запрос найти все продукты
+        public List<ProductResponseDto> findAllProducts()
+
+        - get запрос получить все детали продуктов
+         public List<Product> findAllDetails()
+
+        - get запрос найти продукт по его id
+        public GeneralResponse<ProductResponseDto> findProductById(Long id)
+
+        - get запрос найти все продукты по названию
+        public GeneralResponse<List<ProductResponseDto>> findProductByName(String productName)
+
+        - get запрос найти продукты по производителю
+        public GeneralResponse<List<ProductResponseDto>> findProductByManufacturer(String manufacturer)
+
+        - get запрос найти продукты по типу категории
+        public GeneralResponse<List<ProductResponseDto>> findProductByCategory(CategoryType categoryType)
+
+        - get запрос найти продукты в наличии
+        public GeneralResponse<List<ProductResponseDto>> findOnlyInStock(Integer quantity)
+
+        - get запрос найти продукты по статусу
+        public GeneralResponse<List<ProductResponseDto>> findProductByStatus(ProductStatus status)
+
+        - delete запрос на удаление продукта
+        public GeneralResponse<ProductResponseDto> deleteProductById(Long id)
+

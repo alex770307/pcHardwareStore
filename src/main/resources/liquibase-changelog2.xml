@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <!--- добавляем все наши изменения в БД -->
+
+    <!-- Category Section -->
+    <changeSet id="create.table.category_section" author="alex">
+        <createTable tableName="category_section">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="section_name" type="varchar (255)"/>
+            <column name="description" type="varchar (255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Category -->
+    <changeSet id="create.table.category" author="alex">
+        <createTable tableName="category">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="category_name" type="varchar (255)"/>
+            <column name="description" type="varchar (255)"/>
+            <column name="section_id" type="int"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="category"
+                                 baseColumnNames="section_id"
+                                 referencedTableName="category_section"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_category_section"/>
+    </changeSet>
+
+    <!-- Product -->
+    <changeSet id="create.table.product" author="alex">
+        <createTable tableName="product">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_name" type="varchar (255)"/>
+            <column name="description" type="varchar (255)"/>
+            <column name="manufacturer" type="varchar (255)"/>
+            <column name="price" type="double"/>
+            <column name="quantity" type="int"/>
+            <column name="create_date" type="date"/>
+            <column name="last_update_date" type="date"/>
+            <column name="status" type="varchar (255)"/>
+            <column name="category_id" type="int"/>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="product"
+                baseColumnNames="category_id"
+                referencedTableName="category"
+                referencedColumnNames="id"
+                constraintName="fk_product_category"/>
+    </changeSet>
+
+    <!-- Insert initial data into category_section -->
+    <changeSet id="insert.category_sections" author="alex">
+
+        <insert tableName="category_section">
+            <column name="id" value="1"/>
+            <column name="section_name" value="Core Components"/>
+            <column name="description" value="Essential components for PC building"/>
+        </insert>
+
+        <insert tableName="category_section">
+            <column name="id" value="2"/>
+            <column name="section_name" value="Cases and Modding"/>
+            <column name="description" value="PC cases and modding accessories"/>
+        </insert>
+
+        <insert tableName="category_section">
+            <column name="id" value="3"/>
+            <column name="section_name" value="Computer Storage"/>
+            <column name="description" value="Hard drives, SSDs, and other data storage devices"/>
+        </insert>
+
+        <insert tableName="category_section">
+            <column name="id" value="4"/>
+            <column name="section_name" value="PC Cooling"/>
+            <column name="description" value="Cooling solutions including fans, heats inks, and liquid cooling"/>
+        </insert>
+
+        <insert tableName="category_section">
+            <column name="id" value="5"/>
+            <column name="section_name" value="Additional Components"/>
+            <column name="description" value="Peripherals and other supporting components for PC builds"/>
+        </insert>
+
+    </changeSet>
+
+    <!-- Insert initial data into category -->
+    <changeSet id="insert.categories" author="alex">
+
+        <!-- Core Components (section_id = 1) -->
+        <insert tableName="category">
+            <column name="id" value="1"/>
+            <column name="category_name" value="Graphics cards (GPUs)"/>
+            <column name="description" value="Powerful graphics cards for rendering and gaming"/>
+            <column name="section_id" value="1"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="2"/>
+            <column name="category_name" value="Memory Modules"/>
+            <column name="description" value="High-speed RAM for multitasking and performance"/>
+            <column name="section_id" value="1"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="3"/>
+            <column name="category_name" value="Motherboards"/>
+            <column name="description" value="Mainboards supporting various CPUs and RAM"/>
+            <column name="section_id" value="1"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="4"/>
+            <column name="category_name" value="Power Supplies"/>
+            <column name="description" value="Reliable PSU units for PC builds"/>
+            <column name="section_id" value="1"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="5"/>
+            <column name="category_name" value="Processors (CPUs)"/>
+            <column name="description" value="High-performance processors for gaming and productivity"/>
+            <column name="section_id" value="1"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="6"/>
+            <column name="category_name" value="Sound Cards"/>
+            <column name="description" value="Dedicated audio cards for enhanced sound quality"/>
+            <column name="section_id" value="1"/>
+        </insert>
+
+        <!-- Cases and Modding (section_id = 2) -->
+        <insert tableName="category">
+            <column name="id" value="7"/>
+            <column name="category_name" value="Computer cases"/>
+            <column name="description" value="Stylish and functional cases for building your PC"/>
+            <column name="section_id" value="2"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="8"/>
+            <column name="category_name" value="Front panels"/>
+            <column name="description" value="Customizable front panels for better aesthetics and control"/>
+            <column name="section_id" value="2"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="9"/>
+            <column name="category_name" value="PC case lighting"/>
+            <column name="description" value="RGB lighting kits to customize your PC's appearance"/>
+            <column name="section_id" value="2"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="10"/>
+            <column name="category_name" value="PC case accessories"/>
+            <column name="description" value="Additional tools and parts for customizing PC cases"/>
+            <column name="section_id" value="2"/>
+        </insert>
+
+        <!-- Computer Storage (section_id = 3) -->
+        <insert tableName="category">
+            <column name="id" value="11"/>
+            <column name="category_name" value="Hard drives"/>
+            <column name="description" value="Reliable HDDs for large capacity storage"/>
+            <column name="section_id" value="3"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="12"/>
+            <column name="category_name" value="SSDs"/>
+            <column name="description" value="Fast solid-state drives for quick boot and load times"/>
+            <column name="section_id" value="3"/>
+        </insert>
+
+        <!-- PC Cooling (section_id = 4) -->
+        <insert tableName="category">
+            <column name="id" value="13"/>
+            <column name="category_name" value="AiO liquid cooling"/>
+            <column name="description" value="All-in-one liquid cooling systems for efficient heat dissipation"/>
+            <column name="section_id" value="4"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="14"/>
+            <column name="category_name" value="CPU coolers"/>
+            <column name="description" value="Air and liquid coolers designed for processors"/>
+            <column name="section_id" value="4"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="15"/>
+            <column name="category_name" value="PC case fans"/>
+            <column name="description" value="Case fans for optimal airflow and temperature control"/>
+            <column name="section_id" value="4"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="16"/>
+            <column name="category_name" value="Thermal paste"/>
+            <column name="description" value="High-quality thermal compounds for better heat transfer"/>
+            <column name="section_id" value="4"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="17"/>
+            <column name="category_name" value="Water cooling"/>
+            <column name="description" value="Custom water cooling components for advanced setups"/>
+            <column name="section_id" value="4"/>
+        </insert>
+
+        <!-- Additional Components (section_id = 5) -->
+        <insert tableName="category">
+            <column name="id" value="18"/>
+            <column name="category_name" value="Cables"/>
+            <column name="description" value="Power, data, and extension cables for various PC parts"/>
+            <column name="section_id" value="5"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="19"/>
+            <column name="category_name" value="Expansion cards"/>
+            <column name="description" value="Add-on cards to expand your PC’s capabilities"/>
+            <column name="section_id" value="5"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="20"/>
+            <column name="category_name" value="Graphics card accessories"/>
+            <column name="description" value="Adapters, holders, and connectors for GPUs"/>
+            <column name="section_id" value="5"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="21"/>
+            <column name="category_name" value="Motherboard accessories"/>
+            <column name="description" value="Extra components and modules for motherboards"/>
+            <column name="section_id" value="5"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="22"/>
+            <column name="category_name" value="Networking"/>
+            <column name="description" value="Network cards, adapters, and wireless modules"/>
+            <column name="section_id" value="5"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="23"/>
+            <column name="category_name" value="Optical drives"/>
+            <column name="description" value="CD, DVD, and Blu-ray drives for media reading and writing"/>
+            <column name="section_id" value="5"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="24"/>
+            <column name="category_name" value="Power supply accessories"/>
+            <column name="description" value="Cables, testers, and sleeves for power supplies"/>
+            <column name="section_id" value="5"/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="25"/>
+            <column name="category_name" value="TV cards / sticks"/>
+            <column name="description" value="TV tuner cards and USB sticks for PC media playback"/>
+            <column name="section_id" value="5"/>
+        </insert>
+
+    </changeSet>
+
+    <!-- Insert initial data into product -->
+    <changeSet id="insert.products" author="alex">
+        <!-- Core Components (section_id = 1) -->
+        <insert tableName="product">
+            <column name="id" value="1"/>
+            <column name="product_name" value="NVIDIA GeForce RTX 4090"/>
+            <column name="description" value="Top-tier NVIDIA graphics card"/>
+            <column name="manufacturer" value="NVIDIA"/>
+            <column name="price" value="1599.00"/>
+            <column name="quantity" value="8"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="1"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="2"/>
+            <column name="product_name" value="Corsair Vengeance LPX 32GB"/>
+            <column name="description" value="High-speed DDR4 RAM kit"/>
+            <column name="manufacturer" value="Corsair"/>
+            <column name="price" value="119.99"/>
+            <column name="quantity" value="25"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="2"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="3"/>
+            <column name="product_name" value="ASUS ROG Strix Z790-E"/>
+            <column name="description" value="Gaming motherboard for Intel CPUs"/>
+            <column name="manufacturer" value="ASUS"/>
+            <column name="price" value="399.99"/>
+            <column name="quantity" value="12"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="3"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="4"/>
+            <column name="product_name" value="be quiet! Pure Power 11 600W"/>
+            <column name="description" value="Efficient and silent power supply"/>
+            <column name="manufacturer" value="be quiet!"/>
+            <column name="price" value="89.90"/>
+            <column name="quantity" value="20"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="5"/>
+            <column name="product_name" value="Intel Core i9-13900K"/>
+            <column name="description" value="Latest generation Intel CPU"/>
+            <column name="manufacturer" value="Intel"/>
+            <column name="price" value="649.99"/>
+            <column name="quantity" value="15"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="5"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="6"/>
+            <column name="product_name" value="Creative Sound Blaster Z SE"/>
+            <column name="description" value="High-quality sound card for PC"/>
+            <column name="manufacturer" value="Creative"/>
+            <column name="price" value="79.99"/>
+            <column name="quantity" value="10"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="6"/>
+        </insert>
+
+        <!-- Cases and Modding (section_id = 2) -->
+        <insert tableName="product">
+            <column name="id" value="7"/>
+            <column name="product_name" value="NZXT H510"/>
+            <column name="description" value="Mid-tower ATX case with modern design"/>
+            <column name="manufacturer" value="NZXT"/>
+            <column name="price" value="79.99"/>
+            <column name="quantity" value="18"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="7"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="8"/>
+            <column name="product_name" value="Corsair iCUE Commander CORE XT"/>
+            <column name="description" value="Smart RGB and fan controller front panel"/>
+            <column name="manufacturer" value="Corsair"/>
+            <column name="price" value="59.99"/>
+            <column name="quantity" value="10"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="8"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="9"/>
+            <column name="product_name" value="Lian Li Strimer Plus V2 RGB"/>
+            <column name="description" value="RGB lighting strips for PC cases"/>
+            <column name="manufacturer" value="Lian Li"/>
+            <column name="price" value="49.99"/>
+            <column name="quantity" value="14"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="9"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="10"/>
+            <column name="product_name" value="Cooler Master PCIe Riser Cable Kit"/>
+            <column name="description" value="Accessory kit for vertical GPU mounting"/>
+            <column name="manufacturer" value="Cooler Master"/>
+            <column name="price" value="34.99"/>
+            <column name="quantity" value="8"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="10"/>
+        </insert>
+
+        <!-- Computer Storage (section_id = 3) -->
+        <insert tableName="product">
+            <column name="id" value="11"/>
+            <column name="product_name" value="Seagate Barracuda 2TB"/>
+            <column name="description" value="Reliable 7200 RPM hard drive"/>
+            <column name="manufacturer" value="Seagate"/>
+            <column name="price" value="59.99"/>
+            <column name="quantity" value="22"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="11"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="12"/>
+            <column name="product_name" value="Samsung 970 EVO Plus 1TB"/>
+            <column name="description" value="High-speed NVMe SSD storage"/>
+            <column name="manufacturer" value="Samsung"/>
+            <column name="price" value="129.99"/>
+            <column name="quantity" value="16"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="12"/>
+        </insert>
+
+        <!-- PC Cooling (section_id = 4) -->
+        <insert tableName="product">
+            <column name="id" value="13"/>
+            <column name="product_name" value="Corsair H100i RGB Elite"/>
+            <column name="description" value="All-in-one liquid CPU cooler"/>
+            <column name="manufacturer" value="Corsair"/>
+            <column name="price" value="139.99"/>
+            <column name="quantity" value="9"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="13"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="14"/>
+            <column name="product_name" value="Noctua NH-D15"/>
+            <column name="description" value="Premium dual-tower CPU cooler"/>
+            <column name="manufacturer" value="Noctua"/>
+            <column name="price" value="99.99"/>
+            <column name="quantity" value="7"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="14"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="15"/>
+            <column name="product_name" value="ARCTIC F12 Silent"/>
+            <column name="description" value="Quiet case fan for efficient airflow"/>
+            <column name="manufacturer" value="ARCTIC"/>
+            <column name="price" value="9.99"/>
+            <column name="quantity" value="40"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="15"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="16"/>
+            <column name="product_name" value="Thermal Grizzly Kryonaut"/>
+            <column name="description" value="High-performance thermal paste"/>
+            <column name="manufacturer" value="Thermal Grizzly"/>
+            <column name="price" value="12.99"/>
+            <column name="quantity" value="30"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="16"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="17"/>
+            <column name="product_name" value="EKWB EK-KIT Classic RGB S240"/>
+            <column name="description" value="Custom water cooling kit with RGB lighting"/>
+            <column name="manufacturer" value="EKWB"/>
+            <column name="price" value="229.99"/>
+            <column name="quantity" value="5"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="17"/>
+        </insert>
+
+        <!-- Additional Components (section_id = 5) -->
+        <insert tableName="product">
+            <column name="id" value="18"/>
+            <column name="product_name" value="CableMod Pro ModMesh Cable Kit"/>
+            <column name="description" value="Premium sleeved power supply cables"/>
+            <column name="manufacturer" value="CableMod"/>
+            <column name="price" value="89.99"/>
+            <column name="quantity" value="6"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="18"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="19"/>
+            <column name="product_name" value="ASUS ThunderboltEX 4"/>
+            <column name="description" value="PCIe expansion card for Thunderbolt 4 connectivity"/>
+            <column name="manufacturer" value="ASUS"/>
+            <column name="price" value="129.99"/>
+            <column name="quantity" value="4"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="19"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="20"/>
+            <column name="product_name" value="GPU Support Bracket"/>
+            <column name="description" value="Anti-sag accessory for heavy graphics cards"/>
+            <column name="manufacturer" value="upHere"/>
+            <column name="price" value="14.99"/>
+            <column name="quantity" value="12"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="20"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="21"/>
+            <column name="product_name" value="M.2 Heatsink for Motherboard"/>
+            <column name="description" value="Accessory to cool M.2 SSD on motherboard"/>
+            <column name="manufacturer" value="SilverStone"/>
+            <column name="price" value="9.99"/>
+            <column name="quantity" value="20"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="21"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="22"/>
+            <column name="product_name" value="TP-Link Archer TX3000E"/>
+            <column name="description" value="Wi-Fi 6 and Bluetooth 5.0 PCIe adapter"/>
+            <column name="manufacturer" value="TP-Link"/>
+            <column name="price" value="49.99"/>
+            <column name="quantity" value="15"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="22"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="23"/>
+            <column name="product_name" value="ASUS SDRW-08D2S-U"/>
+            <column name="description" value="External USB DVD drive"/>
+            <column name="manufacturer" value="ASUS"/>
+            <column name="price" value="29.99"/>
+            <column name="quantity" value="10"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="23"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="24"/>
+            <column name="product_name" value="Corsair Premium PSU Cable Comb Kit"/>
+            <column name="description" value="Cable combs for clean PSU cable management"/>
+            <column name="manufacturer" value="Corsair"/>
+            <column name="price" value="14.99"/>
+            <column name="quantity" value="10"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="24"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="id" value="25"/>
+            <column name="product_name" value="Hauppauge WinTV-quadHD"/>
+            <column name="description" value="Quad TV tuner card for Windows PCs"/>
+            <column name="manufacturer" value="Hauppauge"/>
+            <column name="price" value="99.99"/>
+            <column name="quantity" value="5"/>
+            <column name="create_date" valueDate="2025-04-20"/>
+            <column name="last_update_date" valueDate="2025-04-20"/>
+            <column name="status" value="AVAILABLE"/>
+            <column name="category_id" value="25"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
