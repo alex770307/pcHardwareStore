@@ -1,10 +1,13 @@
-package org.internetshop45efs.controller.api;
+package org.pchardwarestore.controller.accountController.api;
 
-import org.internetshop45efs.dto.UserResponseDto;
-import org.internetshop45efs.dto.UserUpdateRequestDto;
-import org.internetshop45efs.entity.User;
+
+import org.pchardwarestore.dto.accountDto.UserResponse;
+import org.pchardwarestore.entity.accountEntity.User;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -18,8 +21,11 @@ public interface AdminApi {
 
     //* найти всех пользователей (ограниченная информация - для MANAGER)
     @GetMapping("/manager/all")
-    public ResponseEntity<List<UserResponseDto>> findAll();
+    public ResponseEntity<List<UserResponse>> findAll();
 
+    //найти всех по фамилии
+    @GetMapping("/lastname")
+    public ResponseEntity<List<UserResponse>> findUserByLastName(String lastName);
 
     // * обновить данные от имени пользователь (пользователь хочет
     // поменять какие-то данные в своем профиле)
@@ -29,7 +35,7 @@ public interface AdminApi {
 
     //* удаление записи
     @DeleteMapping("/{id}")
-    public boolean deleteUser(@PathVariable Integer id);
+    public boolean deleteUser(@PathVariable Long id);
 
 
 }

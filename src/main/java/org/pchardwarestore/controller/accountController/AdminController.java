@@ -1,12 +1,12 @@
-package org.internetshop45efs.controller;
+package org.pchardwarestore.controller.accountController;
 
 import lombok.RequiredArgsConstructor;
-import org.internetshop45efs.controller.api.AdminApi;
-import org.internetshop45efs.dto.UserResponseDto;
-import org.internetshop45efs.dto.UserUpdateRequestDto;
-import org.internetshop45efs.entity.User;
-import org.internetshop45efs.service.UserService;
-import org.springframework.http.HttpStatus;
+
+import org.pchardwarestore.controller.accountController.api.AdminApi;
+import org.pchardwarestore.dto.accountDto.UserResponse;
+import org.pchardwarestore.entity.accountEntity.User;
+import org.pchardwarestore.service.accountService.userService.DeleteUserService;
+import org.pchardwarestore.service.accountService.userService.FindUserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,20 +17,25 @@ import java.util.List;
 @RequestMapping("/api/admin")
 public class AdminController implements AdminApi {
 
-    private final UserService service;
-
-
+    private final FindUserService findUserService;
+    private final DeleteUserService deleteService;
 
     //* найти всех пользователей (полная информация - для ADMIN)
     @GetMapping("/full")
     public ResponseEntity<List<User>> findAllFullDetails(){
-        return ResponseEntity.ok(service.findFullDetailUsers());
+        return ResponseEntity.ok(findUserService.findFullDetailUsers());
     };
 
     //* найти всех пользователей (ограниченная информация - для MANAGER)
     @GetMapping("/manager/all")
-    public ResponseEntity<List<UserResponseDto>> findAll(){
-        return ResponseEntity.ok(service.findAllUsers());
+    public ResponseEntity<List<UserResponse>> findAll(){
+        return ResponseEntity.ok(findUserService.findAllUsers());
+    };
+
+    //найти всех по фамилии
+    @GetMapping("/lastname")
+    public ResponseEntity<List<UserResponse>> findUserByLastName(String lastName){
+        return ResponseEntity.ok(findUserService.findUserByLastName(lastName));
     };
 
 //    @PutMapping("/update")
@@ -43,8 +48,8 @@ public class AdminController implements AdminApi {
 
     //* удаление записи
     @DeleteMapping("/{id}")
-    public boolean deleteUser(@PathVariable Integer id){
-        return service.deleteUser(id);
+    public boolean deleteUser(@PathVariable Long id){
+        return deleteService.deleteUser(id);
     };
 
 

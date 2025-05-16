@@ -1,6 +1,6 @@
-package org.pchardwarestorefour.repository.accountRepository;
+package org.pchardwarestore.repository.accountRepository;
 
-import org.pchardwarestorefour.entity.accountEntity.User;
+import org.pchardwarestore.entity.accountEntity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

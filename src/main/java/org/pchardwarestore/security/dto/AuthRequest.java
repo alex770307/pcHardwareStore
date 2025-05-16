@@ -1,4 +1,4 @@
-package org.internetshop45efs.security.dto;
+package org.pchardwarestore.security.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

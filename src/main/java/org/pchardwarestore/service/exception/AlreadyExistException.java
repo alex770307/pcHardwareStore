@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.service.exception;
+package org.pchardwarestore.service.exception;
 
 public class AlreadyExistException extends RuntimeException {
     public AlreadyExistException(String message) {

@@ -1,7 +1,8 @@
-package org.internetshop45efs.security.service;
+package org.pchardwarestore.security.service;
 
 import lombok.RequiredArgsConstructor;
-import org.internetshop45efs.entity.User;
+//import org.internetshop45efs.entity.User;
+import org.pchardwarestore.entity.accountEntity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

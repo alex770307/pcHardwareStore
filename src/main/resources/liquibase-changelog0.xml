@@ -103,83 +103,6 @@
 
     </changeSet>
 
-    <!-- Confirmation Code -->
-<!--    <changeSet id="create.table.confirmation_code" author="alex">-->
-<!--        <createTable tableName="confirmation_code">-->
-<!--            <column name="id" type="int" autoIncrement="true">-->
-<!--                <constraints primaryKey="true" nullable="false"/>-->
-<!--            </column>-->
-<!--            <column name="code" type="varchar(255)">-->
-<!--                <constraints nullable="false" unique="true"/>-->
-<!--            </column>-->
-<!--            <column name="expire_date_time" type="timestamp">-->
-<!--                <constraints nullable="false"/>-->
-<!--            </column>-->
-<!--            <column name="is_confirmed" type="boolean">-->
-<!--                <constraints nullable="false"/>-->
-<!--            </column>-->
-<!--            <column name="user_id" type="int">-->
-<!--                <constraints nullable="false"/>-->
-<!--            </column>-->
-<!--        </createTable>-->
-
-<!--        <addForeignKeyConstraint-->
-<!--                baseTableName="confirmation_code"-->
-<!--                baseColumnNames="user_id"-->
-<!--                referencedTableName="user"-->
-<!--                referencedColumnNames="id"-->
-<!--                constraintName="fk_confirmation_code_user"/>-->
-<!--    </changeSet>-->
-
-    <!-- User -->
-<!--    <changeSet id="create.table.user" author="alex">-->
-<!--        <createTable tableName="user">-->
-<!--            <column name="id" type="int" autoIncrement="true">-->
-<!--                <constraints primaryKey="true"/>-->
-<!--            </column>-->
-<!--            <column name="email" type="varchar(255)">-->
-<!--                <constraints nullable="false" unique="true"/>-->
-<!--            </column>-->
-<!--            <column name="first_name" type="varchar(255)"/>-->
-<!--            <column name="last_name" type="varchar(255)"/>-->
-<!--            <column name="hash_password" type="varchar(255)">-->
-<!--                <constraints nullable="false"/>-->
-<!--            </column>-->
-<!--            <column name="status" type="varchar(50)">-->
-<!--                <constraints nullable="false"/>-->
-<!--            </column>-->
-<!--            <column name="role" type="varchar(50)">-->
-<!--                <constraints nullable="false"/>-->
-<!--            </column>-->
-<!--        </createTable>-->
-<!--    </changeSet>-->
-
-
-
-    <!-- Insert initial data into confirmation_code -->
-<!--    <changeSet id="insert.confirmation_code" author="alex">-->
-<!--        <insert tableName="confirmation_code">-->
-<!--            <column name="id" value="1"/>-->
-<!--            <column name="code" value="123e4567-e89b-12d3-a456-426614174000"/>-->
-<!--            <column name="expire_date_time" valueDate="2025-05-05T12:00:00"/>-->
-<!--            <column name="is_confirmed" valueBoolean="false"/>-->
-<!--            <column name="user_id" value="1"/>-->
-<!--        </insert>-->
-<!--    </changeSet>-->
-
-    <!-- Insert initial user into user table -->
-<!--    <changeSet id="insert.user" author="alex">-->
-<!--        <insert tableName="user">-->
-<!--            <column name="id" value="1"/>-->
-<!--            <column name="email" value="test@example.com"/>-->
-<!--            <column name="first_name" value="John"/>-->
-<!--            <column name="last_name" value="Doe"/>-->
-<!--            <column name="hash_password" value="$2a$10$DOWSDUhuO0z9eykNk0Xp..WEO61z8HQ7UpgqDuvSrw/Np1P9gAK.a"/>-->
-<!--            <column name="status" value="NOT_CONFIRMED"/>-->
-<!--            <column name="role" value="USER"/>-->
-<!--        </insert>-->
-<!--    </changeSet>-->
-
 
 
 
@@ -214,10 +137,10 @@
             <column name="first_name" value="Admin"/>
             <column name="last_name" value="Adminovic"/>
             <column name="email" value="admin@example.com"/>
-            <column name="hash_password" value="hashed_password_here"/>
+            <column name="hash_password" value="admin"/>
             <column name="role" value="ADMIN"/>
             <column name="status" value="CONFIRMED"/>
-            <column name="photo_link" value=""/>
+            <column name="photo_link" value="null"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

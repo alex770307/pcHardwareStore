@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.entity.catalogEntity;
+package org.pchardwarestore.entity.catalogEntity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

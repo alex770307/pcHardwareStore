@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.entity.accountEntity;
+package org.pchardwarestore.entity.accountEntity;
 
 public enum Status {
     NOT_CONFIRMED,

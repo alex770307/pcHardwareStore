@@ -1,4 +1,4 @@
-package org.internetshop45efs.dto;
+package org.pchardwarestore.dto.accountDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ErrorResponseDto {
+public class ErrorResponse {
 
     private String errorMessage;
 }

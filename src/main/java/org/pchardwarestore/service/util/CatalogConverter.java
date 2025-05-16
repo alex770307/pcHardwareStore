@@ -1,16 +1,16 @@
-package org.pchardwarestorefour.service.util;
+package org.pchardwarestore.service.util;
 
-import org.pchardwarestorefour.dto.catalogDto.categoryDto.AddCategoryRequest;
-import org.pchardwarestorefour.dto.catalogDto.categoryDto.CategoryResponse;
-import org.pchardwarestorefour.dto.catalogDto.productDto.AddProductRequest;
-import org.pchardwarestorefour.dto.catalogDto.productDto.ProductResponse;
-import org.pchardwarestorefour.dto.catalogDto.sectionDto.AddCategorySectionRequest;
-import org.pchardwarestorefour.dto.catalogDto.sectionDto.CategorySectionResponse;
-import org.pchardwarestorefour.entity.catalogEntity.Category;
-import org.pchardwarestorefour.entity.catalogEntity.CategorySection;
-import org.pchardwarestorefour.entity.catalogEntity.Product;
-import org.pchardwarestorefour.entity.catalogEntity.ProductStatus;
-import org.pchardwarestorefour.service.exception.ValidationException;
+import org.pchardwarestore.dto.catalogDto.categoryDto.AddCategoryRequest;
+import org.pchardwarestore.dto.catalogDto.categoryDto.CategoryResponse;
+import org.pchardwarestore.dto.catalogDto.productDto.AddProductRequest;
+import org.pchardwarestore.dto.catalogDto.productDto.ProductResponse;
+import org.pchardwarestore.dto.catalogDto.sectionDto.AddCategorySectionRequest;
+import org.pchardwarestore.dto.catalogDto.sectionDto.CategorySectionResponse;
+import org.pchardwarestore.entity.catalogEntity.Category;
+import org.pchardwarestore.entity.catalogEntity.CategorySection;
+import org.pchardwarestore.entity.catalogEntity.Product;
+import org.pchardwarestore.entity.catalogEntity.ProductStatus;
+import org.pchardwarestore.service.exception.ValidationException;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package org.internetshop45efs.config;
+package org.pchardwarestore.config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +18,10 @@ import java.util.Arrays;
 @Slf4j
 public class LogConfig {
 
-    @Pointcut("execution (public * org.internetshop45efs.controller.*.*(..))")
+    @Pointcut("execution (public * org.pchardwarestore.controller.*.*(..))")
     public void logForController(){}
 
-    @Pointcut("execution (public * org.internetshop45efs.service.*.*(..))")
+    @Pointcut("execution (public * org.pchardwarestore.service.*.*(..))")
     public void serviceLog(){}
 
     @Before("logForController()")

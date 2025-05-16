@@ -1,14 +1,14 @@
-package org.pchardwarestorefour.service.catalogService.productService;
+package org.pchardwarestore.service.catalogService.productService;
 
 import lombok.AllArgsConstructor;
-import org.pchardwarestorefour.dto.catalogDto.productDto.ProductResponse;
-import org.pchardwarestorefour.entity.catalogEntity.Category;
-import org.pchardwarestorefour.entity.catalogEntity.Product;
-import org.pchardwarestorefour.entity.catalogEntity.ProductStatus;
-import org.pchardwarestorefour.repository.catalogRepository.ProductRepository;
-import org.pchardwarestorefour.service.catalogService.categoryService.FindCategoryService;
-import org.pchardwarestorefour.service.exception.NotFoundException;
-import org.pchardwarestorefour.service.util.CatalogConverter;
+import org.pchardwarestore.dto.catalogDto.productDto.ProductResponse;
+import org.pchardwarestore.entity.catalogEntity.Category;
+import org.pchardwarestore.entity.catalogEntity.Product;
+import org.pchardwarestore.entity.catalogEntity.ProductStatus;
+import org.pchardwarestore.repository.catalogRepository.ProductRepository;
+import org.pchardwarestore.service.catalogService.categoryService.FindCategoryService;
+import org.pchardwarestore.service.exception.NotFoundException;
+import org.pchardwarestore.service.util.CatalogConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 

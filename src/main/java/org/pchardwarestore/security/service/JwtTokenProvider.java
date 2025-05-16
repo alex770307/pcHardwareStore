@@ -1,4 +1,4 @@
-package org.internetshop45efs.security.service;
+package org.pchardwarestore.security.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -15,7 +15,7 @@ public class JwtTokenProvider {
 
     private String jwtSecret = "984hg493gh0439rthr0429uruj2309yh937gc763fe87t3f89723gf";
 
-    private long jwtLifeTime = 60000;
+    private long jwtLifeTime = 3600000;
 
     public String createToken(String username) {
 

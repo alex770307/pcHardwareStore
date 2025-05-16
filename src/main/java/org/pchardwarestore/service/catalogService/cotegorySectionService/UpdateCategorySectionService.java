@@ -1,12 +1,12 @@
-package org.pchardwarestorefour.service.catalogService.cotegorySectionService;
+package org.pchardwarestore.service.catalogService.cotegorySectionService;
 
 import lombok.AllArgsConstructor;
-import org.pchardwarestorefour.dto.catalogDto.sectionDto.CategorySectionResponse;
-import org.pchardwarestorefour.dto.catalogDto.sectionDto.UpdateCategorySectionRequest;
-import org.pchardwarestorefour.entity.catalogEntity.CategorySection;
-import org.pchardwarestorefour.repository.catalogRepository.CategorySectionRepository;
-import org.pchardwarestorefour.service.exception.NotFoundException;
-import org.pchardwarestorefour.service.util.CatalogConverter;
+import org.pchardwarestore.dto.catalogDto.sectionDto.CategorySectionResponse;
+import org.pchardwarestore.dto.catalogDto.sectionDto.UpdateCategorySectionRequest;
+import org.pchardwarestore.entity.catalogEntity.CategorySection;
+import org.pchardwarestore.repository.catalogRepository.CategorySectionRepository;
+import org.pchardwarestore.service.exception.NotFoundException;
+import org.pchardwarestore.service.util.CatalogConverter;
 import org.springframework.stereotype.Service;
 
 @Service

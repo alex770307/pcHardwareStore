@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.service.exception;
+package org.pchardwarestore.service.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {

@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.dto.accountDto;
+package org.pchardwarestore.dto.accountDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

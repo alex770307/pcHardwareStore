@@ -1,4 +1,4 @@
-package org.internetshop45efs.security.service;
+package org.pchardwarestore.security.service;
 
 import org.springframework.security.core.AuthenticationException;
 

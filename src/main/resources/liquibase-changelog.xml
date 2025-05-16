@@ -335,4 +335,43 @@
 
     </changeSet>
 
+
+    <!-- Users -->
+    <changeSet id="create.table.users" author="alex">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(25)"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="hash_password" type="VARCHAR(255)"/>
+            <column name="role" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="photo_link" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Insert initial user into user table -->
+    <changeSet id="insert.initial.user" author="alex">
+        <insert tableName="users">
+            <column name="id" value="1"/>
+            <column name="first_name" value="Admin"/>
+            <column name="last_name" value="Adminovic"/>
+            <column name="email" value="admin@example.com"/>
+            <column name="hash_password" value="admin"/>
+            <column name="role" value="ADMIN"/>
+            <column name="status" value="CONFIRMED"/>
+            <column name="photo_link" value="null"/>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>

@@ -1,13 +1,14 @@
-package org.internetshop45efs.controller.api;
+package org.pchardwarestore.controller.accountController.api;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.internetshop45efs.dto.ErrorResponseDto;
-import org.internetshop45efs.dto.UserRequestDto;
-import org.internetshop45efs.dto.UserResponseDto;
+
+import org.pchardwarestore.dto.accountDto.AddUserRequest;
+import org.pchardwarestore.dto.accountDto.ErrorResponse;
+import org.pchardwarestore.dto.accountDto.UserResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,14 +23,14 @@ public interface PublicApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Пользователь успешно зарегистрирован",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = UserResponseDto.class))),
+                            schema = @Schema(implementation = UserResponse.class))),
             @ApiResponse(responseCode = "400", description = "Ошибка валидации",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ErrorResponseDto.class)))
+                            schema = @Schema(implementation = ErrorResponse.class)))
     }
     )
     @PostMapping("/new")
-    public ResponseEntity<UserResponseDto> addNewUser(@RequestBody UserRequestDto request);
+    public ResponseEntity<UserResponse> addNewUser(@RequestBody AddUserRequest request);
 
 
 }

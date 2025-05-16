@@ -1,9 +1,9 @@
-package org.internetshop45efs.controller;
+package org.pchardwarestore.controller.accountController;
 
 import lombok.RequiredArgsConstructor;
-import org.internetshop45efs.security.dto.AuthRequest;
-import org.internetshop45efs.security.dto.AuthResponse;
-import org.internetshop45efs.security.service.JwtTokenProvider;
+import org.pchardwarestore.security.dto.AuthRequest;
+import org.pchardwarestore.security.dto.AuthResponse;
+import org.pchardwarestore.security.service.JwtTokenProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

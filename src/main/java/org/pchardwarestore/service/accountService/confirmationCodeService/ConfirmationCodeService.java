@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.service.accountService.confirmationCodeService;
+package org.pchardwarestore.service.accountService.confirmationCodeService;
 //
 //import lombok.RequiredArgsConstructor;
 //import org.pchardwarestorefour.entity.accountEntity.ConfirmationCode;
@@ -70,13 +70,13 @@ package org.pchardwarestorefour.service.accountService.confirmationCodeService;
 
 //TODO Добавил 07.05.25
 import lombok.RequiredArgsConstructor;
-import org.pchardwarestorefour.entity.accountEntity.ConfirmationCode;
-import org.pchardwarestorefour.entity.accountEntity.User;
-import org.pchardwarestorefour.repository.accountRepository.ConfirmationCodeRepository;
-import org.pchardwarestorefour.service.exception.NotFoundException;
-import org.pchardwarestorefour.service.exception.ValidationException;
+import org.pchardwarestore.entity.accountEntity.ConfirmationCode;
+import org.pchardwarestore.entity.accountEntity.User;
+import org.pchardwarestore.repository.accountRepository.ConfirmationCodeRepository;
+import org.pchardwarestore.service.exception.NotFoundException;
+import org.pchardwarestore.service.exception.ValidationException;
 import org.springframework.stereotype.Service;
-import org.pchardwarestorefour.service.mail.MailUtil;
+import org.pchardwarestore.service.mail.MailUtil;
 
 
 import java.time.LocalDateTime;

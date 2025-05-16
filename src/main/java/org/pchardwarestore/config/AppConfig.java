@@ -1,5 +1,4 @@
-//TODO Добавил 07.05.25
-package org.pchardwarestorefour.config;
+package org.pchardwarestore.config;
 
 import freemarker.cache.ClassTemplateLoader;
 import org.springframework.context.annotation.Bean;
@@ -16,4 +15,4 @@ public class AppConfig {
         return configuration;
     }
 }
-//TODO Добавил 07.05.25
+

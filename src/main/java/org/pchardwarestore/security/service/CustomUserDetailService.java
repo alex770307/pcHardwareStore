@@ -1,7 +1,7 @@
-package org.internetshop45efs.security.service;
+package org.pchardwarestore.security.service;
 
 import lombok.RequiredArgsConstructor;
-import org.internetshop45efs.repository.UserRepository;
+import org.pchardwarestore.repository.accountRepository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

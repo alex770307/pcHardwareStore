@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.dto.catalogDto.categoryDto;
+package org.pchardwarestore.dto.catalogDto.categoryDto;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;

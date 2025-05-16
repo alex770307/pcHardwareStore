@@ -1,16 +1,16 @@
-package org.pchardwarestorefour.controller.catalogController;
+package org.pchardwarestore.controller.catalogController;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
-import org.pchardwarestorefour.dto.catalogDto.productDto.AddProductRequest;
-import org.pchardwarestorefour.dto.catalogDto.productDto.ProductResponse;
-import org.pchardwarestorefour.dto.catalogDto.productDto.UpdateProductRequest;
-import org.pchardwarestorefour.entity.catalogEntity.ProductStatus;
-import org.pchardwarestorefour.service.catalogService.productService.AddProductService;
-import org.pchardwarestorefour.service.catalogService.productService.DeleteProductService;
-import org.pchardwarestorefour.service.catalogService.productService.FindProductService;
-import org.pchardwarestorefour.service.catalogService.productService.UpdateProductService;
+import org.pchardwarestore.dto.catalogDto.productDto.AddProductRequest;
+import org.pchardwarestore.dto.catalogDto.productDto.ProductResponse;
+import org.pchardwarestore.dto.catalogDto.productDto.UpdateProductRequest;
+import org.pchardwarestore.entity.catalogEntity.ProductStatus;
+import org.pchardwarestore.service.catalogService.productService.AddProductService;
+import org.pchardwarestore.service.catalogService.productService.DeleteProductService;
+import org.pchardwarestore.service.catalogService.productService.FindProductService;
+import org.pchardwarestore.service.catalogService.productService.UpdateProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

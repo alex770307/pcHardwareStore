@@ -1,9 +1,9 @@
-package org.pchardwarestorefour.controller;
+package org.pchardwarestore.controller;
 
 import jakarta.validation.ConstraintViolationException;
-import org.pchardwarestorefour.service.exception.AlreadyExistException;
-import org.pchardwarestorefour.service.exception.NotFoundException;
-import org.pchardwarestorefour.service.exception.ValidationException;
+import org.pchardwarestore.service.exception.AlreadyExistException;
+import org.pchardwarestore.service.exception.NotFoundException;
+import org.pchardwarestore.service.exception.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

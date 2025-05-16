@@ -1,13 +1,13 @@
-package org.internetshop45efs.controller.api;
+package org.pchardwarestore.controller.accountController.api;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.internetshop45efs.dto.ErrorResponseDto;
-import org.internetshop45efs.dto.UserResponseDto;
-import org.internetshop45efs.dto.UserUpdateRequestDto;
+import org.pchardwarestore.dto.accountDto.ErrorResponse;
+import org.pchardwarestore.dto.accountDto.UpdateUserRequest;
+import org.pchardwarestore.dto.accountDto.UserResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,22 +19,22 @@ public interface UserApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Информация о пользователе",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = UserResponseDto.class))),
+                            schema = @Schema(implementation = UserResponse.class))),
             @ApiResponse(responseCode = "404", description = "Пользователь не найден",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ErrorResponseDto.class)))
+                            schema = @Schema(implementation = ErrorResponse.class)))
     }
     )
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponseDto> findUserById(@PathVariable Integer id);
+    public ResponseEntity<UserResponse> findUserById(@PathVariable Long id);
 
     //*найти пользователя по email
     @GetMapping()
-    public ResponseEntity<UserResponseDto> findUserByEmail(@RequestParam String email);
+    public ResponseEntity<UserResponse> findUserByEmail(@RequestParam String email);
 
     // * обновить данные от имени пользователь (пользователь хочет
     // поменять какие-то данные в своем профиле)
     @PutMapping("/update")
-    public ResponseEntity<UserResponseDto> updateUser(@RequestBody UserUpdateRequestDto request);
+    public ResponseEntity<UserResponse> updateUser(@RequestBody UpdateUserRequest request);
 
 }

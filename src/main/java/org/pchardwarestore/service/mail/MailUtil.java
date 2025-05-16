@@ -1,5 +1,4 @@
-//TODO Добавил 07.05.25
-package org.pchardwarestorefour.service.mail;
+package org.pchardwarestore.service.mail;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -54,4 +53,3 @@ public class MailUtil {
         javaMailSender.send(message);
     }
 }
-//TODO Добавил 07.05.25

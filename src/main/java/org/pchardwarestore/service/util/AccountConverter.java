@@ -1,9 +1,9 @@
-package org.pchardwarestorefour.service.util;
+package org.pchardwarestore.service.util;
 
-import org.pchardwarestorefour.dto.accountDto.AddUserRequest;
-import org.pchardwarestorefour.dto.accountDto.UserResponse;
-import org.pchardwarestorefour.entity.accountEntity.FileInfo;
-import org.pchardwarestorefour.entity.accountEntity.User;
+import org.pchardwarestore.dto.accountDto.AddUserRequest;
+import org.pchardwarestore.dto.accountDto.UserResponse;
+import org.pchardwarestore.entity.accountEntity.FileInfo;
+import org.pchardwarestore.entity.accountEntity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

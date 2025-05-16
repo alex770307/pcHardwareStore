@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.service.validation;
+package org.pchardwarestore.service.validation;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

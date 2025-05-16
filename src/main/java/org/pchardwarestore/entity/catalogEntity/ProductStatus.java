@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.entity.catalogEntity;
+package org.pchardwarestore.entity.catalogEntity;
 
 public enum ProductStatus {
     AVAILABLE,

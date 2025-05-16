@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.service.exception;
+package org.pchardwarestore.service.exception;
 
 public class ValidationException extends RuntimeException {
     public ValidationException(String message) {

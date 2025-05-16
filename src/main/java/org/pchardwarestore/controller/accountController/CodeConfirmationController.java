@@ -1,9 +1,9 @@
-package org.pchardwarestorefour.controller.accountController;
+package org.pchardwarestore.controller.accountController;
 
 import lombok.RequiredArgsConstructor;
-import org.pchardwarestorefour.dto.accountDto.UserResponse;
-import org.pchardwarestorefour.service.accountService.confirmationCodeService.ConfirmationCodeService;
-import org.pchardwarestorefour.service.accountService.userService.RegistrationUserService;
+import org.pchardwarestore.dto.accountDto.UserResponse;
+import org.pchardwarestore.service.accountService.confirmationCodeService.ConfirmationCodeService;
+import org.pchardwarestore.service.accountService.userService.RegistrationUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

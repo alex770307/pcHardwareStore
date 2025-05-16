@@ -1,12 +1,12 @@
-package org.pchardwarestorefour.dto.catalogDto.productDto;
+package org.pchardwarestore.dto.catalogDto.productDto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.pchardwarestorefour.dto.catalogDto.categoryDto.CategoryResponse;
-import org.pchardwarestorefour.entity.catalogEntity.ProductStatus;
+import org.pchardwarestore.dto.catalogDto.categoryDto.CategoryResponse;
+import org.pchardwarestore.entity.catalogEntity.ProductStatus;
 
 import java.time.LocalDateTime;
 

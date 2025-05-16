@@ -1,10 +1,10 @@
-package org.pchardwarestorefour.dto.catalogDto.categoryDto;
+package org.pchardwarestore.dto.catalogDto.categoryDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.pchardwarestorefour.dto.catalogDto.sectionDto.CategorySectionResponse;
+import org.pchardwarestore.dto.catalogDto.sectionDto.CategorySectionResponse;
 
 @Data
 @AllArgsConstructor

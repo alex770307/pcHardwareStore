@@ -1,4 +1,4 @@
-package org.internetshop45efs.security.config;
+package org.pchardwarestore.security.config;
 
 
 import lombok.RequiredArgsConstructor;
@@ -29,8 +29,8 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-//        return NoOpPasswordEncoder.getInstance(); // шифрацию паролей не делаем
-        return new BCryptPasswordEncoder();
+        return NoOpPasswordEncoder.getInstance(); // шифрацию паролей не делаем
+//        return new BCryptPasswordEncoder();
     }
 
     @Bean
@@ -43,6 +43,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/user/**").hasAnyRole("ADMIN","USER")
+//                        .requestMatchers("category-sections").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 

@@ -1,15 +1,15 @@
-package org.pchardwarestorefour.service.catalogService.categoryService;
+package org.pchardwarestore.service.catalogService.categoryService;
 
 import lombok.AllArgsConstructor;
 
-import org.pchardwarestorefour.dto.catalogDto.categoryDto.AddCategoryRequest;
-import org.pchardwarestorefour.dto.catalogDto.categoryDto.CategoryResponse;
-import org.pchardwarestorefour.entity.catalogEntity.Category;
-import org.pchardwarestorefour.entity.catalogEntity.CategorySection;
-import org.pchardwarestorefour.repository.catalogRepository.CategoryRepository;
-import org.pchardwarestorefour.service.catalogService.cotegorySectionService.FindCategorySectionService;
-import org.pchardwarestorefour.service.exception.AlreadyExistException;
-import org.pchardwarestorefour.service.util.CatalogConverter;
+import org.pchardwarestore.dto.catalogDto.categoryDto.AddCategoryRequest;
+import org.pchardwarestore.dto.catalogDto.categoryDto.CategoryResponse;
+import org.pchardwarestore.entity.catalogEntity.Category;
+import org.pchardwarestore.entity.catalogEntity.CategorySection;
+import org.pchardwarestore.repository.catalogRepository.CategoryRepository;
+import org.pchardwarestore.service.catalogService.cotegorySectionService.FindCategorySectionService;
+import org.pchardwarestore.service.exception.AlreadyExistException;
+import org.pchardwarestore.service.util.CatalogConverter;
 import org.springframework.stereotype.Service;
 
 @Service

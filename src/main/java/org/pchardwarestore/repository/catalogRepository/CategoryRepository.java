@@ -1,7 +1,7 @@
-package org.pchardwarestorefour.repository.catalogRepository;
+package org.pchardwarestore.repository.catalogRepository;
 
 
-import org.pchardwarestorefour.entity.catalogEntity.Category;
+import org.pchardwarestore.entity.catalogEntity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

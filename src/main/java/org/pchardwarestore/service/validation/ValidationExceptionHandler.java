@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.service.validation;
+package org.pchardwarestore.service.validation;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

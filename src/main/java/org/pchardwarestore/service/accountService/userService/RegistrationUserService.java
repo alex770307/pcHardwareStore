@@ -1,17 +1,17 @@
-package org.pchardwarestorefour.service.accountService.userService;
+package org.pchardwarestore.service.accountService.userService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.pchardwarestorefour.dto.accountDto.AddUserRequest;
-import org.pchardwarestorefour.dto.accountDto.UserResponse;
-import org.pchardwarestorefour.entity.accountEntity.Role;
-import org.pchardwarestorefour.entity.accountEntity.Status;
-import org.pchardwarestorefour.entity.accountEntity.User;
-import org.pchardwarestorefour.repository.accountRepository.UserRepository;
-import org.pchardwarestorefour.service.accountService.confirmationCodeService.ConfirmationCodeService;
-import org.pchardwarestorefour.service.exception.AlreadyExistException;
-import org.pchardwarestorefour.service.exception.NotFoundException;
-import org.pchardwarestorefour.service.util.AccountConverter;
+import org.pchardwarestore.dto.accountDto.AddUserRequest;
+import org.pchardwarestore.dto.accountDto.UserResponse;
+import org.pchardwarestore.entity.accountEntity.Role;
+import org.pchardwarestore.entity.accountEntity.Status;
+import org.pchardwarestore.entity.accountEntity.User;
+import org.pchardwarestore.repository.accountRepository.UserRepository;
+import org.pchardwarestore.service.accountService.confirmationCodeService.ConfirmationCodeService;
+import org.pchardwarestore.service.exception.AlreadyExistException;
+import org.pchardwarestore.service.exception.NotFoundException;
+import org.pchardwarestore.service.util.AccountConverter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package org.pchardwarestorefour.entity.accountEntity;
+package org.pchardwarestore.entity.accountEntity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

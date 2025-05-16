@@ -1,12 +1,12 @@
-package org.pchardwarestorefour.service.accountService.userService;
+package org.pchardwarestore.service.accountService.userService;
 
 import lombok.RequiredArgsConstructor;
-import org.pchardwarestorefour.dto.accountDto.UserResponse;
-import org.pchardwarestorefour.entity.accountEntity.User;
-import org.pchardwarestorefour.repository.accountRepository.UserRepository;
+import org.pchardwarestore.dto.accountDto.UserResponse;
+import org.pchardwarestore.entity.accountEntity.User;
+import org.pchardwarestore.repository.accountRepository.UserRepository;
 
-import org.pchardwarestorefour.service.exception.NotFoundException;
-import org.pchardwarestorefour.service.util.AccountConverter;
+import org.pchardwarestore.service.exception.NotFoundException;
+import org.pchardwarestore.service.util.AccountConverter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
