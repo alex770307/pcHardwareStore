@@ -77,7 +77,6 @@ public class CatalogConverter {
                 .createDate(product.getCreateDate())
                 .lastUpdateDate(product.getLastUpdateDate())
                 .status(product.getStatus())
-//                todo
                 .photoLink(product.getPhotoLink())
                 .photoLinks(product.getPhotos()
                         .stream()
@@ -87,7 +86,7 @@ public class CatalogConverter {
                 .category(fromCategory(product.getCategory()))
                 .build();
     }
-//todo
+
     public List<ProductResponse> fromProducts(List<Product> products) {
         return products.stream()
                 .map(product -> fromProduct(product))

@@ -402,6 +402,17 @@
             <column name="status" value="CONFIRMED"/>
             <column name="photo_link" value="null"/>
         </insert>
+        <!--User-->
+        <insert tableName="users">
+            <column name="id" value="3"/>
+            <column name="first_name" value="User"/>
+            <column name="last_name" value="User"/>
+            <column name="email" value="user@example.com"/>
+            <column name="hash_password" value="user"/>
+            <column name="role" value="USER"/>
+            <column name="status" value="CONFIRMED"/>
+            <column name="photo_link" value="null"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

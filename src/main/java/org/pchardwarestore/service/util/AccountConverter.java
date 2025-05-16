@@ -17,9 +17,6 @@ public class AccountConverter {
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())
-                //TODO Добавил 07.05.25
-//                .hashPassword(request.getPassword())
-                //TODO Добавил 07.05.25
                 .build();
     }
 

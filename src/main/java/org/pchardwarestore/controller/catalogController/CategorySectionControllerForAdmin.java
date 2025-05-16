@@ -1,16 +1,13 @@
 package org.pchardwarestore.controller.catalogController;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import org.pchardwarestore.dto.catalogDto.sectionDto.AddCategorySectionRequest;
 import org.pchardwarestore.dto.catalogDto.sectionDto.CategorySectionResponse;
 import org.pchardwarestore.dto.catalogDto.sectionDto.UpdateCategorySectionRequest;
 import org.pchardwarestore.service.catalogService.cotegorySectionService.AddCategorySectionService;
 import org.pchardwarestore.service.catalogService.cotegorySectionService.DeleteCategorySectionService;
-import org.pchardwarestore.service.catalogService.cotegorySectionService.FindCategorySectionService;
 import org.pchardwarestore.service.catalogService.cotegorySectionService.UpdateCategorySectionService;
-import org.pchardwarestore.service.util.CatalogConverter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

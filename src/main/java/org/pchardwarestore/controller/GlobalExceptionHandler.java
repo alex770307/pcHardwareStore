@@ -70,7 +70,6 @@ public ResponseEntity<Map<String, String>> handlerAlreadyExistException(AlreadyE
                     responseMessage.append("\n");
                 }
         );
-
         return new ResponseEntity<>(responseMessage.toString(), HttpStatus.BAD_REQUEST);
     }
 

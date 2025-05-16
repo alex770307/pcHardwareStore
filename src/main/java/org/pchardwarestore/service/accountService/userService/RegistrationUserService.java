@@ -31,14 +31,13 @@ public class RegistrationUserService {
         User newUser = converter.toUser(request);
         newUser.setRole(Role.USER);
         newUser.setStatus(Status.NOT_CONFIRMED);
-        //TODO Добавил 07.05.25
         newUser.setHashPassword(passwordEncoder.encode(request.getPassword()));
-        //TODO Добавил 07.05.25
+
         repository.save(newUser);
         confirmationCodeService.confirmationCodeHandle(newUser);
+
         return converter.fromUser(newUser);
     }
-
 
     @Transactional
     public UserResponse confirmationEmail(String code){

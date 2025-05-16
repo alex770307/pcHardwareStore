@@ -20,7 +20,6 @@ public class UpdateProductService {
     public ProductResponse updateProduct(UpdateProductRequest request, Long id) {
         Product existingProduct = productRepository.findById(id)
                 .orElseThrow(() ->
-//                        new IllegalArgumentException("Product with ID '" + id + "' not found"));
                         new NotFoundException("Product with ID '" + id + "' not found"));
 
         if (request.getName() != null && !request.getName().isBlank()) {

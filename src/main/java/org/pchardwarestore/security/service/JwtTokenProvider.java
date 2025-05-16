@@ -18,12 +18,9 @@ public class JwtTokenProvider {
     private long jwtLifeTime = 3600000;
 
     public String createToken(String username) {
-
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtLifeTime);
-
         Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
-
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(now)
@@ -32,12 +29,9 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-
     public boolean validateToken(String token) {
-
         try {
             Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
-
             Jwts
                     .parserBuilder()
                     .setSigningKey(key)
@@ -46,24 +40,6 @@ public class JwtTokenProvider {
         } catch (JwtException e) {
             throw new InvalidJwtException("Invalid JWT token: " + e.getMessage());
         }
-
-//        } catch (SignatureException e) {
-//            // Invalid JWT signature
-//            throw new InvalidJwtException("Invalid JWT signature");
-//        } catch (MalformedJwtException e){
-//            // Invalid JWT token
-//            throw new InvalidJwtException("Invalid JWT token");
-//        }catch (ExpiredJwtException e){
-//            // Expired JWT token
-//            throw new InvalidJwtException("Expired JWT token");
-//        } catch (UnsupportedJwtException e){
-//            // Unsupported JWT token
-//            throw new InvalidJwtException("Unsupported JWT token");
-//        } catch (IllegalArgumentException e){
-//            // JWT claims is empty
-//            throw new InvalidJwtException("JWT claims is empty");
-//        }
-
         return true;
     }
 
@@ -75,9 +51,6 @@ public class JwtTokenProvider {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-
-        // вытаскиваем из claims (из части payload нашего JWT)
-        // из них берем содержимое поля subject
 
         return claims.getSubject();
     }

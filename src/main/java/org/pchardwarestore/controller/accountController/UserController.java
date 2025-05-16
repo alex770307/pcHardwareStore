@@ -12,8 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/users")
@@ -27,24 +25,30 @@ public class UserController implements UserApi {
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> findUserById(@PathVariable Long id) {
         return ResponseEntity.ok(findUserService.findUserById(id));
-    };
+    }
+
+    ;
 
     //*найти пользователя по email
     @GetMapping()
     public ResponseEntity<UserResponse> findUserByEmail(@RequestParam String email) {
         return ResponseEntity.ok(findUserService.findUserByEmail(email));
-    };
+    }
+
+    ;
 
     // * обновить данные от имени пользователь (пользователь хочет
     // поменять какие-то данные в своем профиле)
     @PutMapping("/update")
-    public ResponseEntity<UserResponse> updateUser(@RequestBody UpdateUserRequest request){
+    public ResponseEntity<UserResponse> updateUser(@RequestBody UpdateUserRequest request) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(updateUserService.updateUser(request));
-    };
+    }
 
-    //TODO
+    ;
+
+
 // Подтверждение пользователя по коду
     @GetMapping("/confirm")
     public ResponseEntity<UserResponse> confirmUser(@RequestParam String code) {

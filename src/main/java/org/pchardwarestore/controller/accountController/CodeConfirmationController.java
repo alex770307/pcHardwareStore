@@ -1,7 +1,6 @@
 package org.pchardwarestore.controller.accountController;
 
 import lombok.RequiredArgsConstructor;
-import org.pchardwarestore.service.accountService.confirmationCodeService.ConfirmationCodeService;
 import org.pchardwarestore.service.accountService.userService.RegistrationUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/code")
 public class CodeConfirmationController {
 
-    private final ConfirmationCodeService confirmationCodeService;
     private final RegistrationUserService userService;
 
     @GetMapping("/renew")
