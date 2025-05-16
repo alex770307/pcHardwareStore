@@ -27,11 +27,11 @@ public class SecurityConfig {
 
     private final JwtAuthFilter filter;
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance(); // шифрацию паролей не делаем
-//        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public PasswordEncoder passwordEncoder(){
+//        return NoOpPasswordEncoder.getInstance(); // шифрацию паролей не делаем
+////        return new BCryptPasswordEncoder();
+//    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -43,7 +43,11 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/user/**").hasAnyRole("ADMIN","USER")
-//                        .requestMatchers("category-sections").permitAll()
+//todo
+                        .requestMatchers("/api/category-sections/**").permitAll()
+                        .requestMatchers("/api/sections-for-admin/**").hasRole("ADMIN")
+
+
                         .anyRequest().authenticated())
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 

@@ -19,16 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PublicController implements PublicApi {
 
     private final RegistrationUserService registrationUserService;
-
-
     //*  добавить нового пользователя
-
     @PostMapping("/new")
     public ResponseEntity<UserResponse> addNewUser(@RequestBody AddUserRequest request){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(registrationUserService.registration(request));
     };
-
-
 }

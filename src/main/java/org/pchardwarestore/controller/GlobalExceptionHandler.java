@@ -18,10 +18,6 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-//    @ExceptionHandler(AlreadyExistException.class)
-//    public ResponseEntity<String> handlerAlreadyExistException(AlreadyExistException e) {
-//        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-//    }
 @ExceptionHandler(AlreadyExistException.class)
 public ResponseEntity<Map<String, String>> handlerAlreadyExistException(AlreadyExistException e){
     Map<String, String> errorResponse = new HashMap<>();

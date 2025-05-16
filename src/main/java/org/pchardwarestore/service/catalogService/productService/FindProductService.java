@@ -96,7 +96,9 @@ public class FindProductService {
         }
     }
 
-    public List<ProductResponse> searchProducts(String manufacturer, Double minPrice, Double maxPrice, ProductStatus status, String categoryName) {
+    public List<ProductResponse> searchProducts(
+            String manufacturer, Double minPrice, Double maxPrice,
+            ProductStatus status, String categoryName) {
         List<Product> products = productRepository.findAll();
 
         List<Product> filteredProducts = products.stream()

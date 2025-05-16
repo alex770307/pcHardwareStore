@@ -47,9 +47,7 @@ public class User {
 
     private String photoLink;
 
-    //TODO Добавил 07.05.25
     @Builder.Default
-    //TODO Добавил 07.05.25
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<FileInfo> photos = new HashSet<>();
 }

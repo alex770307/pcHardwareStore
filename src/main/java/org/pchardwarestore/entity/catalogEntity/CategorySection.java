@@ -29,8 +29,4 @@ public class CategorySection {
     @Size(min = 3, max = 255, message = "Category section description length must be between from 3 to 255 characters")
     private String description;
 
-    public CategorySection(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
 }

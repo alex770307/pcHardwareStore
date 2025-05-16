@@ -7,7 +7,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -58,6 +62,13 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "ProductStatus cannot be null")
     private ProductStatus status;
+//todo
+    private String photoLink;
+
+    @Builder.Default
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ProductInfo> photos = new HashSet<>();
+
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
@@ -66,7 +77,8 @@ public class Product {
 
     public Product(String name, String description, String manufacturer,
                    Double price, Integer quantity, LocalDateTime createDate,
-                   LocalDateTime lastUpdateDate, ProductStatus status, Category category) {
+                   LocalDateTime lastUpdateDate, ProductStatus status,
+                   String photoLink, Set<ProductInfo> photos, Category category) {
         this.name = name;
         this.description = description;
         this.manufacturer = manufacturer;
@@ -75,17 +87,24 @@ public class Product {
         this.createDate = createDate;
         this.lastUpdateDate = lastUpdateDate;
         this.status = status;
+        this.photoLink = photoLink;
+        this.photos = photos;
         this.category = category;
     }
 
     public Product(String name, String description, String manufacturer,
-                   Double price, Integer quantity, Category category) {
+                   Double price, Integer quantity, String photoLink,
+                   Set<ProductInfo> photos, Category category) {
         this.name = name;
         this.description = description;
         this.manufacturer = manufacturer;
         this.price = price;
         this.quantity = quantity;
+        this.photoLink = photoLink;
+        this.photos = photos;
         this.category = category;
     }
+
+
 }
 

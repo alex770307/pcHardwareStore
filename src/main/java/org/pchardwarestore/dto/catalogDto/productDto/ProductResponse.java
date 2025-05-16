@@ -9,6 +9,7 @@ import org.pchardwarestore.dto.catalogDto.categoryDto.CategoryResponse;
 import org.pchardwarestore.entity.catalogEntity.ProductStatus;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -27,5 +28,9 @@ public class ProductResponse {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime lastUpdateDate;
     private ProductStatus status;
+    //    todo
+    private String photoLink;
+    private List<String> photoLinks;
+
     private CategoryResponse category;
 }

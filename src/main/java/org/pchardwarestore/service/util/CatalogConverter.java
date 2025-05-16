@@ -6,14 +6,13 @@ import org.pchardwarestore.dto.catalogDto.productDto.AddProductRequest;
 import org.pchardwarestore.dto.catalogDto.productDto.ProductResponse;
 import org.pchardwarestore.dto.catalogDto.sectionDto.AddCategorySectionRequest;
 import org.pchardwarestore.dto.catalogDto.sectionDto.CategorySectionResponse;
-import org.pchardwarestore.entity.catalogEntity.Category;
-import org.pchardwarestore.entity.catalogEntity.CategorySection;
-import org.pchardwarestore.entity.catalogEntity.Product;
-import org.pchardwarestore.entity.catalogEntity.ProductStatus;
+import org.pchardwarestore.entity.catalogEntity.*;
 import org.pchardwarestore.service.exception.ValidationException;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class CatalogConverter {
@@ -78,8 +77,21 @@ public class CatalogConverter {
                 .createDate(product.getCreateDate())
                 .lastUpdateDate(product.getLastUpdateDate())
                 .status(product.getStatus())
+//                todo
+                .photoLink(product.getPhotoLink())
+                .photoLinks(product.getPhotos()
+                        .stream()
+                        .map(ProductInfo::getLink)
+                        .collect(Collectors.toList()))
+
                 .category(fromCategory(product.getCategory()))
                 .build();
+    }
+//todo
+    public List<ProductResponse> fromProducts(List<Product> products) {
+        return products.stream()
+                .map(product -> fromProduct(product))
+                .collect(Collectors.toList());
     }
 
     public ProductStatus toProductStatus(String statusString) {

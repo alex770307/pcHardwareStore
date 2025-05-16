@@ -1,7 +1,6 @@
 package org.pchardwarestore.dto.catalogDto.categoryDto;
 
 import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

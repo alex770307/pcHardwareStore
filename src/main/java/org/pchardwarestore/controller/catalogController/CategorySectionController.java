@@ -1,17 +1,9 @@
 package org.pchardwarestore.controller.catalogController;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
-import org.pchardwarestore.dto.catalogDto.sectionDto.AddCategorySectionRequest;
 import org.pchardwarestore.dto.catalogDto.sectionDto.CategorySectionResponse;
-import org.pchardwarestore.dto.catalogDto.sectionDto.UpdateCategorySectionRequest;
-import org.pchardwarestore.service.catalogService.cotegorySectionService.AddCategorySectionService;
-import org.pchardwarestore.service.catalogService.cotegorySectionService.DeleteCategorySectionService;
 import org.pchardwarestore.service.catalogService.cotegorySectionService.FindCategorySectionService;
-import org.pchardwarestore.service.catalogService.cotegorySectionService.UpdateCategorySectionService;
-import org.pchardwarestore.service.util.CatalogConverter;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,18 +15,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @Validated
 public class CategorySectionController {
-    private AddCategorySectionService addCategorySectionService;
-    private DeleteCategorySectionService deleteCategorySectionService;
     private FindCategorySectionService findCategorySectionService;
-    private UpdateCategorySectionService updateCategorySectionService;
-    private CatalogConverter converter;
-
-    @PostMapping
-    public ResponseEntity<CategorySectionResponse> addCategorySection(
-            @RequestBody @Valid AddCategorySectionRequest request) {
-        CategorySectionResponse savedCategorySection = addCategorySectionService.addCategorySection(request);
-        return ResponseEntity.status(201).body(savedCategorySection);
-    }
 
     @GetMapping
     public List<CategorySectionResponse> findAllCategorySections() {
@@ -53,20 +34,4 @@ public class CategorySectionController {
         return Optional.ofNullable(findCategorySectionService.findCategorySectionBySectionName(sectionName));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<CategorySectionResponse> updateCategorySection(
-            @RequestBody @Valid UpdateCategorySectionRequest request,
-            @PathVariable Long id
-
-    ) {
-        CategorySectionResponse updatedCategorySection = updateCategorySectionService
-                .updateCategorySection(request, id);
-        return ResponseEntity.ok(updatedCategorySection);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<CategorySectionResponse> deleteCategorySection(@PathVariable Long id) {
-        CategorySectionResponse deletedSection = deleteCategorySectionService.deleteCategorySection(id);
-        return ResponseEntity.ok(deletedSection);
-    }
 }

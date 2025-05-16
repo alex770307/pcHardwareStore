@@ -50,6 +50,9 @@
             <column name="create_date" type="date"/>
             <column name="last_update_date" type="date"/>
             <column name="status" type="varchar (255)"/>
+<!--todo-->
+            <column name="photo_link" type="varchar (255)"/>
+
             <column name="category_id" type="int"/>
         </createTable>
         <addForeignKeyConstraint
@@ -98,6 +101,9 @@
             <column name="create_date" valueDate="2025-04-20"/>
             <column name="last_update_date" valueDate="2025-04-20"/>
             <column name="status" value="AVAILABLE"/>
+<!--todo-->
+            <column name="photo_link" value="null"/>
+
             <column name="category_id" value="1"/>
         </insert>
 
@@ -132,6 +138,7 @@
 
     <!-- Insert initial user into user table -->
     <changeSet id="insert.initial.user" author="alex">
+    <!--Admin-->
         <insert tableName="users">
             <column name="id" value="1"/>
             <column name="first_name" value="Admin"/>
@@ -142,5 +149,17 @@
             <column name="status" value="CONFIRMED"/>
             <column name="photo_link" value="null"/>
         </insert>
+    <!--Manager-->
+        <insert tableName="users">
+            <column name="id" value="2"/>
+            <column name="first_name" value="Manager"/>
+            <column name="last_name" value="Manager"/>
+            <column name="email" value="manager@example.com"/>
+            <column name="hash_password" value="manager"/>
+            <column name="role" value="MANAGER"/>
+            <column name="status" value="CONFIRMED"/>
+            <column name="photo_link" value="null"/>
+        </insert>
     </changeSet>
+
 </databaseChangeLog>
