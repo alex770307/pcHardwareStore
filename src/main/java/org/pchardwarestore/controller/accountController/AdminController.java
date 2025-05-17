@@ -27,7 +27,7 @@ public class AdminController implements AdminApi {
     @GetMapping("/full")
     public ResponseEntity<List<User>> findAllFullDetails(){
         return ResponseEntity.ok(findUserService.findFullDetailUsers());
-    };
+    }
 
     //* найти всех пользователей (ограниченная информация - для MANAGER)
     @GetMapping("/manager/all")
@@ -39,7 +39,7 @@ public class AdminController implements AdminApi {
     @GetMapping("/lastname")
     public ResponseEntity<List<UserResponse>> findUserByLastName(String lastName){
         return ResponseEntity.ok(findUserService.findUserByLastName(lastName));
-    };
+    }
 
     //обновить роль пользователя
     @PutMapping("/update")

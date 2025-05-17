@@ -67,12 +67,14 @@
             <version>2.1.0</version>
         </dependency>
         <!--TODO 14.05-->
+
         <!--TODO 07.05-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <!--TODO 07.05-->
+
         <!--TODO 14.05-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
@@ -94,6 +96,7 @@
             <scope>runtime</scope>
         </dependency>
         <!--TODO 14.05-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

@@ -2,7 +2,7 @@ package org.pchardwarestore.controller.catalogController;
 
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.pchardwarestore.dto.catalogDto.productDto.ProductResponse;
 import org.pchardwarestore.entity.catalogEntity.ProductStatus;
 import org.pchardwarestore.service.catalogService.productService.FindProductService;
@@ -13,11 +13,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Validated
 public class ProductController {
 
-    private FindProductService findProductService;
+    private final FindProductService findProductService;
 
     @GetMapping
     public List<ProductResponse> findAllProducts() {

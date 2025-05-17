@@ -27,15 +27,11 @@ public class UserController implements UserApi {
         return ResponseEntity.ok(findUserService.findUserById(id));
     }
 
-    ;
-
     //*найти пользователя по email
     @GetMapping()
     public ResponseEntity<UserResponse> findUserByEmail(@RequestParam String email) {
         return ResponseEntity.ok(findUserService.findUserByEmail(email));
     }
-
-    ;
 
     // * обновить данные от имени пользователь (пользователь хочет
     // поменять какие-то данные в своем профиле)
@@ -44,15 +40,5 @@ public class UserController implements UserApi {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(updateUserService.updateUser(request));
-    }
-
-    ;
-
-
-// Подтверждение пользователя по коду
-    @GetMapping("/confirm")
-    public ResponseEntity<UserResponse> confirmUser(@RequestParam String code) {
-        UserResponse userResponse = registrationUserService.confirmationEmail(code);
-        return ResponseEntity.ok(userResponse);
     }
 }

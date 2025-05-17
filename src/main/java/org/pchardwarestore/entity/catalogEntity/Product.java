@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -76,23 +75,6 @@ public class Product {
     private Category category;
 
     public Product(String name, String description, String manufacturer,
-                   Double price, Integer quantity, LocalDateTime createDate,
-                   LocalDateTime lastUpdateDate, ProductStatus status,
-                   String photoLink, Set<ProductInfo> photos, Category category) {
-        this.name = name;
-        this.description = description;
-        this.manufacturer = manufacturer;
-        this.price = price;
-        this.quantity = quantity;
-        this.createDate = createDate;
-        this.lastUpdateDate = lastUpdateDate;
-        this.status = status;
-        this.photoLink = photoLink;
-        this.photos = photos;
-        this.category = category;
-    }
-
-    public Product(String name, String description, String manufacturer,
                    Double price, Integer quantity, String photoLink,
                    Set<ProductInfo> photos, Category category) {
         this.name = name;
@@ -105,6 +87,19 @@ public class Product {
         this.category = category;
     }
 
-
+    public Product(Long id, String name, String description, String manufacturer,
+                   Double price, Integer quantity, LocalDateTime createDate,
+                   LocalDateTime lastUpdateDate, ProductStatus status, Category category) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.manufacturer = manufacturer;
+        this.price = price;
+        this.quantity = quantity;
+        this.createDate = createDate;
+        this.lastUpdateDate = lastUpdateDate;
+        this.status = status;
+        this.category = category;
+    }
 }
 

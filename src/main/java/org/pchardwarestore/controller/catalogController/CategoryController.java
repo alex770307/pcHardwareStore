@@ -1,7 +1,7 @@
 package org.pchardwarestore.controller.catalogController;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.pchardwarestore.dto.catalogDto.categoryDto.CategoryResponse;
 import org.pchardwarestore.service.catalogService.categoryService.FindCategoryService;
 import org.springframework.validation.annotation.Validated;
@@ -12,11 +12,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/categories")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Validated
 public class CategoryController {
 
-    private FindCategoryService findCategoryService;
+    private final FindCategoryService findCategoryService;
 
     @GetMapping
     public List<CategoryResponse> findAllCategories() {

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface PublicApi {
 
     //*  добавить нового пользователя
-
     @Operation(summary = "Регистрация нового пользователя")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Пользователь успешно зарегистрирован",
@@ -31,6 +30,4 @@ public interface PublicApi {
     )
     @PostMapping("/new")
     public ResponseEntity<UserResponse> addNewUser(@RequestBody AddUserRequest request);
-
-
 }

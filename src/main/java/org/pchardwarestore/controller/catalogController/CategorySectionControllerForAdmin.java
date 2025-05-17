@@ -1,7 +1,7 @@
 package org.pchardwarestore.controller.catalogController;
 
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.pchardwarestore.dto.catalogDto.sectionDto.AddCategorySectionRequest;
 import org.pchardwarestore.dto.catalogDto.sectionDto.CategorySectionResponse;
 import org.pchardwarestore.dto.catalogDto.sectionDto.UpdateCategorySectionRequest;
@@ -13,12 +13,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/sections-for-admin")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Validated
 public class CategorySectionControllerForAdmin {
-    private AddCategorySectionService addCategorySectionService;
-    private DeleteCategorySectionService deleteCategorySectionService;
-    private UpdateCategorySectionService updateCategorySectionService;
+    private final AddCategorySectionService addCategorySectionService;
+    private final DeleteCategorySectionService deleteCategorySectionService;
+    private final UpdateCategorySectionService updateCategorySectionService;
 
     @PostMapping
     public ResponseEntity<CategorySectionResponse> addCategorySection(

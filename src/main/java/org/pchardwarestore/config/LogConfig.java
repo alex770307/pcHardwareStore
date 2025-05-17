@@ -53,6 +53,4 @@ public class LogConfig {
         log.error("Request throw an exception. Cause - {}.{}",
                 Arrays.toString(point.getArgs()), e.getMessage());
     }
-
-
 }

@@ -28,7 +28,6 @@ public interface AdminApi {
     @PutMapping("/update")
     public ResponseEntity<UserResponse> updateUserForAdmin(@RequestBody UpdateUserRequestForAdmin request);
 
-
     //* удаление записи
     @DeleteMapping("/{id}")
     public boolean deleteUser(@PathVariable Long id);

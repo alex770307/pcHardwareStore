@@ -8,10 +8,7 @@ import org.pchardwarestore.dto.accountDto.UserResponse;
 import org.pchardwarestore.service.accountService.userService.RegistrationUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,5 +22,12 @@ public class PublicController implements PublicApi {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(registrationUserService.registration(request));
-    };
+    }
+
+    // Подтверждение пользователя по коду
+    @GetMapping("/confirm")
+    public ResponseEntity<UserResponse> confirmUser(@RequestParam String code) {
+        UserResponse userResponse = registrationUserService.confirmationEmail(code);
+        return ResponseEntity.ok(userResponse);
+    }
 }

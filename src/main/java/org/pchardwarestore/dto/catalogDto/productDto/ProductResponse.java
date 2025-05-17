@@ -33,4 +33,22 @@ public class ProductResponse {
     private List<String> photoLinks;
 
     private CategoryResponse category;
+
+
+
+    public ProductResponse(Long id, String name, String description,
+                           String manufacturer, Double price, Integer quantity,
+                           LocalDateTime createDate, LocalDateTime lastUpdateDate,
+                           ProductStatus status, CategoryResponse category) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.manufacturer = manufacturer;
+        this.price = price;
+        this.quantity = quantity;
+        this.createDate = createDate;
+        this.lastUpdateDate = lastUpdateDate;
+        this.status = status;
+        this.category = category;
+    }
 }
