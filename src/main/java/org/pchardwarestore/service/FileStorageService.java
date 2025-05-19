@@ -55,24 +55,3 @@ public class FileStorageService {
         return "Файл " + link + " успешно сохранен";
     }
 }
-
-//    public String storeFile(MultipartFile file) {
-//        String filename = StringUtils.cleanPath(file.getOriginalFilename());
-//
-//        try {
-//            Path targetFile = FileStorageLocation.resolve(filename);
-//            Files.copy(file.getInputStream(), targetFile, StandardCopyOption.REPLACE_EXISTING);
-//        } catch (IOException e) {
-//            throw new RuntimeException("Ошибка сохранения файла: " + filename);
-//        }
-//
-//        String link = "/upload/" + filename;
-//
-//        FileInfo fileInfo = new FileInfo();
-//        fileInfo.setLink(link);
-//        fileInfo.setUser(findUserService.getCurrentUser());
-//
-//        repository.save(fileInfo);
-//        return "Файл " + link + " успешно сохранен";
-//    }
-//}
