@@ -28,6 +28,25 @@ class ConfirmationCodeServiceTest {
     }
 
     @Test
+    void confirmationCodeHandle_shouldSaveCodeAndSendEmail() {
+        User user = new User();
+        user.setFirstName("John");
+        user.setLastName("Doe");
+        user.setEmail("john@example.com");
+
+        confirmationCodeService.confirmationCodeHandle(user);
+
+        verify(repository, times(1)).save(any(ConfirmationCode.class));
+        verify(mailUtil, times(1)).sendEmail(
+                eq("John"),
+                eq("Doe"),
+                contains("http://localhost:8080/api/users/confirm?code="),
+                eq("Code confirmation email"),
+                eq("john@example.com")
+        );
+    }
+
+    @Test
     void confirmUserByCode_shouldSetConfirmedAndReturnUser() {
         String code = UUID.randomUUID().toString();
 

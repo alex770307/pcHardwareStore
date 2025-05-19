@@ -6,6 +6,8 @@ import org.pchardwarestore.entity.accountEntity.User;
 import org.pchardwarestore.repository.accountRepository.UserRepository;
 import org.pchardwarestore.service.exception.NotFoundException;
 import org.pchardwarestore.service.util.AccountConverter;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,5 +46,14 @@ public class FindUserService {
         List<User> users = repository.findByLastName(lastName);
         List<UserResponse> responses = converter.fromUsers(users);
         return responses;
+    }
+
+    public User getCurrentUser() {
+        UserDetails principal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        String email = principal.getUsername();
+
+        return repository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException("Пользователь с email: " + email + " не найден"));
     }
 }

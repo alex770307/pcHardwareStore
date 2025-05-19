@@ -12,6 +12,8 @@ import org.pchardwarestore.service.accountService.confirmationCodeService.Confir
 import org.pchardwarestore.service.exception.AlreadyExistException;
 import org.pchardwarestore.service.exception.NotFoundException;
 import org.pchardwarestore.service.util.AccountConverter;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -53,4 +55,5 @@ public class RegistrationUserService {
         confirmationCodeService.confirmationCodeHandle(user);
         return true;
     }
+
 }

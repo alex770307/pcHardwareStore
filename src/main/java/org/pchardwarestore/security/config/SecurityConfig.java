@@ -35,7 +35,12 @@ public class SecurityConfig {
                         .requestMatchers("/api/public/**").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/api/user/**").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers("/api/users/**").hasAnyRole("ADMIN", "MANAGER", "USER")
+                        //todo--------------------------------
+                        // File
+                        .requestMatchers("api/upload/**").hasAnyRole("ADMIN", "MANAGER", "USER")
+                        //todo--------------------------------
+
                         // Section
                         .requestMatchers("/api/category-sections/**").permitAll()
                         .requestMatchers("/api/sections-for-admin/**").hasRole("ADMIN")
