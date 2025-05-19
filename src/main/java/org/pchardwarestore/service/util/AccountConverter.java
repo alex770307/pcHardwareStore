@@ -28,7 +28,7 @@ public class AccountConverter {
                 .email(user.getEmail())
                 .role(user.getRole().toString())
                 .status(user.getStatus().toString())
-//                .photoLink(user.getPhotoLink())
+                .photoLink(user.getPhotoLink())
 //                .photoLinks(user.getPhotos()
 //                        .stream()
 //                        .map(FileInfo::getLink)
