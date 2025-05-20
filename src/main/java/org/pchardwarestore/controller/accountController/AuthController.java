@@ -1,9 +1,9 @@
 package org.pchardwarestore.controller.accountController;
 
 import lombok.RequiredArgsConstructor;
-import org.pchardwarestore.security.dto.AuthRequest;
-import org.pchardwarestore.security.dto.AuthResponse;
-import org.pchardwarestore.security.service.JwtTokenProvider;
+import org.pchardwarestore.dto.authAccountDto.AuthRequest;
+import org.pchardwarestore.dto.authAccountDto.AuthResponse;
+import org.pchardwarestore.service.accountService.authUserService.JwtTokenProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

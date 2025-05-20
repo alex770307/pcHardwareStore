@@ -1,4 +1,4 @@
-package org.pchardwarestore.security.config;
+package org.pchardwarestore.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -6,9 +6,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.pchardwarestore.security.service.CustomUserDetailService;
-import org.pchardwarestore.security.service.InvalidJwtException;
-import org.pchardwarestore.security.service.JwtTokenProvider;
+import org.pchardwarestore.service.accountService.authUserService.CustomUserDetailService;
+import org.pchardwarestore.service.exception.InvalidJwtException;
+import org.pchardwarestore.service.accountService.authUserService.JwtTokenProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

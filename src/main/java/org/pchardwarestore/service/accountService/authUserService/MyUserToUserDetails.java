@@ -1,4 +1,4 @@
-package org.pchardwarestore.security.service;
+package org.pchardwarestore.service.accountService.authUserService;
 
 import lombok.RequiredArgsConstructor;
 import org.pchardwarestore.entity.accountEntity.User;

@@ -1,4 +1,4 @@
-package org.pchardwarestore.security.config;
+package org.pchardwarestore.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package org.pchardwarestore.security.config;
+package org.pchardwarestore.config;
 
 
 import lombok.RequiredArgsConstructor;
@@ -37,7 +37,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/users/**").hasAnyRole("ADMIN", "MANAGER", "USER")
                         // File
-                        .requestMatchers("api/upload/**").hasAnyRole("ADMIN", "MANAGER", "USER")
+
+//                        .requestMatchers("api/upload/**").hasAnyRole("ADMIN", "MANAGER", "USER")
+                        .requestMatchers("api/upload-users-img/**").hasAnyRole("ADMIN", "MANAGER", "USER")
                         // Section
                         .requestMatchers("/api/category-sections/**").permitAll()
                         .requestMatchers("/api/sections-for-admin/**").hasRole("ADMIN")

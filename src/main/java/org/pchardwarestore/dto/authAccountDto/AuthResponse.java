@@ -1,4 +1,4 @@
-package org.pchardwarestore.security.dto;
+package org.pchardwarestore.dto.authAccountDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

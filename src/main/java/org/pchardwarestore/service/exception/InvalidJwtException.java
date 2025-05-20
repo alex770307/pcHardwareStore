@@ -1,4 +1,4 @@
-package org.pchardwarestore.security.service;
+package org.pchardwarestore.service.exception;
 
 import org.springframework.security.core.AuthenticationException;
 

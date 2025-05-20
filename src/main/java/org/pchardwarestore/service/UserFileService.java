@@ -1,7 +1,6 @@
 package org.pchardwarestore.service;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.io.FilenameUtils;
 
 import org.pchardwarestore.entity.accountEntity.FileInfo;
 import org.pchardwarestore.entity.accountEntity.User;
@@ -20,11 +19,12 @@ import java.nio.file.StandardCopyOption;
 
 @Service
 @RequiredArgsConstructor
-public class FileStorageService {
+public class UserFileService {
 
     private final FileInfoRepository repository;
     private final FindUserService findUserService;
-    private final Path FileStorageLocation = Paths.get("src/main/resources/static/upload");
+//    private final Path FileStorageLocation = Paths.get("src/main/resources/static/upload");
+private final Path FileStorageLocation = Paths.get("src/main/resources/static/upload/user_img");
 
     @Transactional
     public String storeFile(MultipartFile file) {
@@ -37,7 +37,8 @@ public class FileStorageService {
             throw new RuntimeException("Ошибка сохранения файла: " + filename);
         }
 
-        String link = "/upload/" + filename;
+//        String link = "/upload/" + filename;
+        String link = "/user_img/" + filename;
 
         User currentUser = findUserService.getCurrentUser();
 

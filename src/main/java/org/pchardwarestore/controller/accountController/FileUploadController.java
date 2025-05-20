@@ -2,7 +2,7 @@ package org.pchardwarestore.controller.accountController;
 
 import lombok.RequiredArgsConstructor;
 
-import org.pchardwarestore.service.FileStorageService;
+import org.pchardwarestore.service.UserFileService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,9 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class FileUploadController {
 
-    private final FileStorageService service;
+    private final UserFileService service;
 
-    @PostMapping("/api/upload")
+//    @PostMapping("/api/upload")
+    @PostMapping("/api/upload-users-img")
     public ResponseEntity<String> fileUpload(@RequestParam("uploadFile")MultipartFile uploadFile){
         try{
             service.storeFile(uploadFile);
