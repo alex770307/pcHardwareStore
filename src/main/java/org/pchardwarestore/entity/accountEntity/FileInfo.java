@@ -1,6 +1,7 @@
 package org.pchardwarestore.entity.accountEntity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,10 +23,9 @@ public class FileInfo {
         @Column(length = 1000)
         private String link;
 
-        //todo-------------------------------
-//        @JsonBackReference
-        //todo-------------------------------
+        @JsonBackReference
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "user_id")
         private User user;
+
 }

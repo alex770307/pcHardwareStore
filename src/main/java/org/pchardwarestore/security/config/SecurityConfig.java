@@ -36,11 +36,8 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/users/**").hasAnyRole("ADMIN", "MANAGER", "USER")
-                        //todo--------------------------------
                         // File
                         .requestMatchers("api/upload/**").hasAnyRole("ADMIN", "MANAGER", "USER")
-                        //todo--------------------------------
-
                         // Section
                         .requestMatchers("/api/category-sections/**").permitAll()
                         .requestMatchers("/api/sections-for-admin/**").hasRole("ADMIN")
@@ -55,7 +52,6 @@ public class SecurityConfig {
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
-
     }
 
     @Bean

@@ -10,7 +10,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -48,11 +50,8 @@ public class User {
 
     private String photoLink;
 
-    @Builder.Default
-    //todo-------------------------------
-//    @JsonManagedReference
-    //todo-------------------------------
+    @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<FileInfo> photos = new HashSet<>();
+    private List<FileInfo> photos = new ArrayList<>();
 
 }

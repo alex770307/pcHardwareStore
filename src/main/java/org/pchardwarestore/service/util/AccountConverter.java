@@ -29,11 +29,11 @@ public class AccountConverter {
                 .role(user.getRole().toString())
                 .status(user.getStatus().toString())
                 .photoLink(user.getPhotoLink())
-//                .photoLinks(user.getPhotos()
-//                        .stream()
-//                        .map(FileInfo::getLink)
-//                        .collect(Collectors.toList())
-//                )
+                .photoLinks(user.getPhotos()
+                        .stream()
+                        .map(FileInfo::getLink)
+                        .collect(Collectors.toList())
+                )
                 .build();
     }
 

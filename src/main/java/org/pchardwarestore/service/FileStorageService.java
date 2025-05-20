@@ -50,7 +50,7 @@ public class FileStorageService {
             currentUser.setPhotoLink(link);
         }
 
-//        currentUser.getPhotos().add(fileInfo);
+        currentUser.getPhotos().add(fileInfo);
 
         return "Файл " + link + " успешно сохранен";
     }
