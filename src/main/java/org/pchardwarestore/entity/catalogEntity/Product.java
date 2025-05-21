@@ -1,5 +1,6 @@
 package org.pchardwarestore.entity.catalogEntity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -8,8 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -61,12 +62,13 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "ProductStatus cannot be null")
     private ProductStatus status;
-//todo
+
     private String photoLink;
 
-    @Builder.Default
+    @JsonManagedReference
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<ProductInfo> photos = new HashSet<>();
+//    private Set<ProductInfo> photos = new HashSet<>();
+    private List<ProductPhoto> photos = new ArrayList<>();
 
 
     @ManyToOne
@@ -76,7 +78,7 @@ public class Product {
 
     public Product(String name, String description, String manufacturer,
                    Double price, Integer quantity, String photoLink,
-                   Set<ProductInfo> photos, Category category) {
+                   List<ProductPhoto> photos, Category category) {
         this.name = name;
         this.description = description;
         this.manufacturer = manufacturer;

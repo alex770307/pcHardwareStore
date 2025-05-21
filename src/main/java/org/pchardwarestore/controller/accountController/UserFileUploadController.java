@@ -12,11 +12,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
-public class FileUploadController {
+public class UserFileUploadController {
 
     private final UserFileService service;
 
-//    @PostMapping("/api/upload")
     @PostMapping("/api/upload-users-img")
     public ResponseEntity<String> fileUpload(@RequestParam("uploadFile")MultipartFile uploadFile){
         try{

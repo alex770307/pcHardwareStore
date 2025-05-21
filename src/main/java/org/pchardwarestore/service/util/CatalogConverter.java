@@ -80,7 +80,7 @@ public class CatalogConverter {
                 .photoLink(product.getPhotoLink())
                 .photoLinks(product.getPhotos()
                         .stream()
-                        .map(ProductInfo::getLink)
+                        .map(ProductPhoto::getLink)
                         .collect(Collectors.toList()))
 
                 .category(fromCategory(product.getCategory()))

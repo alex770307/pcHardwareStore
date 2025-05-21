@@ -121,4 +121,8 @@ public class FindProductService {
                 .map(converter::fromProduct)
                 .toList();
     }
+    public Product getCurrentProduct(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Product with ID '" + id + "' not found"));
+    }
 }

@@ -54,6 +54,6 @@ public class FindUserService {
         String email = principal.getUsername();
 
         return repository.findByEmail(email)
-                .orElseThrow(() -> new NotFoundException("Пользователь с email: " + email + " не найден"));
+                .orElseThrow(() -> new NotFoundException("User with email " + email + " not found"));
     }
 }

@@ -36,9 +36,6 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/users/**").hasAnyRole("ADMIN", "MANAGER", "USER")
-                        // File
-
-//                        .requestMatchers("api/upload/**").hasAnyRole("ADMIN", "MANAGER", "USER")
                         .requestMatchers("api/upload-users-img/**").hasAnyRole("ADMIN", "MANAGER", "USER")
                         // Section
                         .requestMatchers("/api/category-sections/**").permitAll()
@@ -49,10 +46,10 @@ public class SecurityConfig {
                         // Product
                         .requestMatchers("/api/products/**").permitAll()
                         .requestMatchers("/api/products-for-manager/**").hasAnyRole("ADMIN", "MANAGER")
+                        .requestMatchers("/api/products/{id}/upload-photo/**").hasAnyRole("ADMIN", "MANAGER")
 
                         .anyRequest().authenticated())
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
-
         return http.build();
     }
 

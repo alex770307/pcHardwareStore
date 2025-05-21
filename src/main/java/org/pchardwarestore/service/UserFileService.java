@@ -34,10 +34,9 @@ private final Path FileStorageLocation = Paths.get("src/main/resources/static/up
             Path targetFile = FileStorageLocation.resolve(filename);
             Files.copy(file.getInputStream(), targetFile, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            throw new RuntimeException("Ошибка сохранения файла: " + filename);
+            throw new RuntimeException("Error saving file : " + filename);
         }
 
-//        String link = "/upload/" + filename;
         String link = "/user_img/" + filename;
 
         User currentUser = findUserService.getCurrentUser();
