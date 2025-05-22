@@ -60,22 +60,17 @@
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
-        <!--TODO 14.05-->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.1.0</version>
         </dependency>
-        <!--TODO 14.05-->
 
-        <!--TODO 07.05-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <!--TODO 07.05-->
 
-        <!--TODO 14.05-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -95,7 +90,6 @@
             <version>0.11.2</version>
             <scope>runtime</scope>
         </dependency>
-        <!--TODO 14.05-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

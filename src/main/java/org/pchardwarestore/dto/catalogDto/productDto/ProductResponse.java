@@ -28,10 +28,8 @@ public class ProductResponse {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime lastUpdateDate;
     private ProductStatus status;
-
     private String photoLink;
     private List<String> photoLinks;
-
     private CategoryResponse category;
 
     public ProductResponse(Long id, String name, String description,

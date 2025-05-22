@@ -23,7 +23,6 @@ public class UserFileService {
 
     private final FileInfoRepository repository;
     private final FindUserService findUserService;
-//    private final Path FileStorageLocation = Paths.get("src/main/resources/static/upload");
 private final Path FileStorageLocation = Paths.get("src/main/resources/static/upload/user_img");
 
     @Transactional

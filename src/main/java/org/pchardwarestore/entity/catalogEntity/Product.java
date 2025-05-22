@@ -67,7 +67,6 @@ public class Product {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Set<ProductInfo> photos = new HashSet<>();
     private List<ProductPhoto> photos = new ArrayList<>();
 
 

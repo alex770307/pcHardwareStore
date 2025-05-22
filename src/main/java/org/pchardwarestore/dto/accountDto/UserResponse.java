@@ -14,18 +14,11 @@ import java.util.List;
 public class UserResponse {
 
     private Long id;
-
     private String firstName;
-
     private String lastName;
-
     private String email;
-
     private String role;
-
     private String status;
-
     private String photoLink;
-
     private List<String> photoLinks;
 }

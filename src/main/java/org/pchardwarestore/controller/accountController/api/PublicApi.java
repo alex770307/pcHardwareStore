@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api/public")
 public interface PublicApi {
 
-    //*  добавить нового пользователя
     @Operation(summary = "Регистрация нового пользователя")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Пользователь успешно зарегистрирован",

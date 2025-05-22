@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 public interface UserApi {
 
-    //*найти пользователя по ID
     @Operation(summary = "Получение информации о пользователе по ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Информация о пользователе",
@@ -28,12 +27,9 @@ public interface UserApi {
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> findUserById(@PathVariable Long id);
 
-    //*найти пользователя по email
     @GetMapping()
     public ResponseEntity<UserResponse> findUserByEmail(@RequestParam String email);
 
-    // * обновить данные от имени пользователь (пользователь хочет
-    // поменять какие-то данные в своем профиле)
     @PutMapping("/update")
     public ResponseEntity<UserResponse> updateUser(@RequestBody UpdateUserRequest request);
 
