@@ -6,6 +6,7 @@ import org.pchardwarestore.entity.accountEntity.FileInfo;
 import org.pchardwarestore.entity.accountEntity.User;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,15 @@ public class AccountConverter {
     }
 
     public UserResponse fromUser(User user) {
+        List<String> photos = Collections.emptyList();
+
+        if (user.getPhotos() != null) {
+            photos = user.getPhotos()
+                    .stream()
+                    .map(FileInfo::getLink)
+                    .collect(Collectors.toList());
+        }
+
         return UserResponse.builder()
                 .id(user.getId())
                 .firstName(user.getFirstName())
@@ -29,11 +39,7 @@ public class AccountConverter {
                 .role(user.getRole().toString())
                 .status(user.getStatus().toString())
                 .photoLink(user.getPhotoLink())
-                .photoLinks(user.getPhotos()
-                        .stream()
-                        .map(FileInfo::getLink)
-                        .collect(Collectors.toList())
-                )
+                .photoLinks(photos)
                 .build();
     }
 

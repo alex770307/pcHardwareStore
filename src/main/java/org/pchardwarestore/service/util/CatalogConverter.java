@@ -11,6 +11,7 @@ import org.pchardwarestore.service.exception.ValidationException;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,26 +67,31 @@ public class CatalogConverter {
                 .build();
     }
 
-    public ProductResponse fromProduct(Product product) {
-        return ProductResponse.builder()
-                .id(product.getId())
-                .name(product.getName())
-                .description(product.getDescription())
-                .manufacturer(product.getManufacturer())
-                .price(product.getPrice())
-                .quantity(product.getQuantity())
-                .createDate(product.getCreateDate())
-                .lastUpdateDate(product.getLastUpdateDate())
-                .status(product.getStatus())
-                .photoLink(product.getPhotoLink())
-                .photoLinks(product.getPhotos()
-                        .stream()
-                        .map(ProductPhoto::getLink)
-                        .collect(Collectors.toList()))
+public ProductResponse fromProduct(Product product) {
+        List<String> photos = Collections.emptyList();
 
-                .category(fromCategory(product.getCategory()))
-                .build();
-    }
+        if (product.getPhotos() != null) {
+            photos = product.getPhotos()
+                    .stream()
+                    .map(ProductPhoto::getLink)
+                    .collect(Collectors.toList());
+        }
+
+    return ProductResponse.builder()
+            .id(product.getId())
+            .name(product.getName())
+            .description(product.getDescription())
+            .manufacturer(product.getManufacturer())
+            .price(product.getPrice())
+            .quantity(product.getQuantity())
+            .createDate(product.getCreateDate())
+            .lastUpdateDate(product.getLastUpdateDate())
+            .status(product.getStatus())
+            .photoLink(product.getPhotoLink())
+            .photoLinks(photos)
+            .category(fromCategory(product.getCategory()))
+            .build();
+}
 
     public List<ProductResponse> fromProducts(List<Product> products) {
         return products.stream()
