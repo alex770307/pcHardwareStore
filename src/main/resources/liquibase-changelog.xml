@@ -50,9 +50,7 @@
             <column name="create_date" type="date"/>
             <column name="last_update_date" type="date"/>
             <column name="status" type="varchar (255)"/>
-            <!--todo-->
             <column name="photo_link" type="varchar (255)"/>
-
             <column name="category_id" type="int"/>
         </createTable>
         <addForeignKeyConstraint
@@ -277,9 +275,7 @@
             <column name="create_date" valueDate="2025-04-20"/>
             <column name="last_update_date" valueDate="2025-04-20"/>
             <column name="status" value="AVAILABLE"/>
-            <!--todo-->
             <column name="photo_link" value="null"/>
-
             <column name="category_id" value="1"/>
         </insert>
 
@@ -294,9 +290,7 @@
             <column name="create_date" valueDate="2025-04-20"/>
             <column name="last_update_date" valueDate="2025-04-20"/>
             <column name="status" value="AVAILABLE"/>
-            <!--todo-->
             <column name="photo_link" value="null"/>
-
             <column name="category_id" value="7"/>
         </insert>
 
@@ -311,9 +305,7 @@
             <column name="create_date" valueDate="2025-04-20"/>
             <column name="last_update_date" valueDate="2025-04-20"/>
             <column name="status" value="AVAILABLE"/>
-            <!--todo-->
             <column name="photo_link" value="null"/>
-
             <column name="category_id" value="11"/>
         </insert>
 
@@ -328,9 +320,7 @@
             <column name="create_date" valueDate="2025-04-20"/>
             <column name="last_update_date" valueDate="2025-04-20"/>
             <column name="status" value="AVAILABLE"/>
-            <!--todo-->
             <column name="photo_link" value="null"/>
-
             <column name="category_id" value="13"/>
         </insert>
 
@@ -345,9 +335,7 @@
             <column name="create_date" valueDate="2025-04-20"/>
             <column name="last_update_date" valueDate="2025-04-20"/>
             <column name="status" value="AVAILABLE"/>
-            <!--todo-->
             <column name="photo_link" value="null"/>
-
             <column name="category_id" value="18"/>
         </insert>
 
